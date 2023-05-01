@@ -8,7 +8,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Fur Fight Club — Analytics service')
-    .setDescription('Swagger of the authentication service of Fur Fight Club')
+    .setDescription('Swagger of the analytics service of Fur Fight Club')
     .setVersion('1.0')
     .addBearerAuth({
       type: "http",
