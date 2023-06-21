@@ -24,29 +24,33 @@ export class EventsController {
   @Post("mouse-click")
   async mouseClick(
     @Body(ZodValidationPipe) mouseClickDto: MouseClickDto
-  ): Promise<void> {
-    return await this.eventsService.mouseClick(mouseClickDto);
+  ): Promise<{ success: boolean }> {
+    await this.eventsService.mouseClick(mouseClickDto);
+    return { success: true };
   }
 
   @Post("button-click")
   async buttonClick(
     @Body(ZodValidationPipe) buttonClickDto: ButtonClickDto
-  ): Promise<void> {
-    return await this.eventsService.buttonClick(buttonClickDto);
+  ): Promise<{ success: boolean }> {
+    await this.eventsService.buttonClick(buttonClickDto);
+    return { success: true };
   }
 
   @Post("pathname-change")
   async pathnameChange(
     @Body(ZodValidationPipe) pathnameChangeDto: PathnameChangeDto
-  ): Promise<void> {
-    return await this.eventsService.pathnameChange(pathnameChangeDto);
+  ): Promise<{ success: boolean }> {
+    await this.eventsService.pathnameChange(pathnameChangeDto);
+    return { success: true };
   }
 
   @Post("leave-app")
   async leaveApp(
     @Body(ZodValidationPipe) leaveAppDto: LeaveAppEventDto
-  ): Promise<void> {
-    return await this.eventsService.leaveApp(leaveAppDto);
+  ): Promise<{ success: boolean }> {
+    await this.eventsService.leaveApp(leaveAppDto);
+    return { success: true };
   }
 
   @Get("button-click")
