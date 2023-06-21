@@ -107,14 +107,14 @@ model UserAgent {
 
 model Browser {
   id        String      @id @default(cuid()) @map("_id")
-  name      String
-  version   String
+  name      String?
+  version   String?
   UserAgent UserAgent[]
 }
 
 model OS {
   id        String      @id @default(cuid()) @map("_id")
-  name      String
-  version   String
+  name      String?
+  version   String?
   UserAgent UserAgent[]
 }
