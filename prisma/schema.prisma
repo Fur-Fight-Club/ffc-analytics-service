@@ -1,0 +1,120 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "darwin", "darwin-arm64", "rhel-openssl-1.0.x", "debian-openssl-1.1.x", "linux-arm64-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URL")
+}
+
+enum EventType {
+  button_click
+  mouse_click
+  pathname_change
+  page_unload
+}
+
+model ButtonEvent {
+  id            String    @id @default(cuid()) @map("_id")
+  event         EventType @default(button_click)
+  event_id      String
+  timestamp     Int
+  user          Int
+  uuid          String
+  pathname      String
+  buttonContent String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model MouseClickEvent {
+  id          String    @id @default(cuid()) @map("_id")
+  event       EventType @default(mouse_click)
+  event_id    String    @default("analyticsWrapper")
+  timestamp   Int
+  user        Int
+  uuid        String
+  pathname    String
+  click       Click     @relation(fields: [clickId], references: [id])
+  window      Window    @relation(fields: [windowId], references: [id])
+  userAgent   UserAgent @relation(fields: [userAgentId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  clickId     String
+  windowId    String
+  userAgentId String
+}
+
+model PathnameChangeEvent {
+  id          String    @id @default(cuid()) @map("_id")
+  event       EventType @default(pathname_change)
+  event_id    String
+  timestamp   Int
+  user        Int
+  uuid        String
+  startTime   Int
+  endTime     Int
+  userAgent   UserAgent @relation(fields: [userAgentId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  userAgentId String
+}
+
+model LeaveAppEvent {
+  id           String    @id @default(cuid()) @map("_id")
+  event        EventType @default(page_unload)
+  event_id     String
+  timestamp    Int
+  user         Int
+  uuid         String
+  visitedPages Json
+  userAgent    UserAgent @relation(fields: [userAgentId], references: [id])
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  userAgentId  String
+}
+
+model Click {
+  id              String            @id @default(cuid()) @map("_id")
+  x               Int
+  y               Int
+  MouseClickEvent MouseClickEvent[]
+}
+
+model Window {
+  id              String            @id @default(cuid()) @map("_id")
+  width           Int
+  height          Int
+  MouseClickEvent MouseClickEvent[]
+}
+
+model UserAgent {
+  id                  String                @id @default(cuid()) @map("_id")
+  browser             Browser               @relation(fields: [browserId], references: [id])
+  os                  OS                    @relation(fields: [oSId], references: [id])
+  platform            String
+  language            String
+  MouseClickEvent     MouseClickEvent[]
+  browserId           String
+  oSId                String
+  PathnameChangeEvent PathnameChangeEvent[]
+  LeaveAppEvent       LeaveAppEvent[]
+}
+
+model Browser {
+  id        String      @id @default(cuid()) @map("_id")
+  name      String
+  version   String
+  UserAgent UserAgent[]
+}
+
+model OS {
+  id        String      @id @default(cuid()) @map("_id")
+  name      String
+  version   String
+  UserAgent UserAgent[]
+}
