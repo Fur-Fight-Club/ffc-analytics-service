@@ -185,4 +185,28 @@ export class EventsService {
       },
     });
   }
+
+  async resetAll() {
+    const delete1 = this.mongo.mouseClickEvent.deleteMany();
+    const delete2 = this.mongo.buttonEvent.deleteMany();
+    const delete3 = this.mongo.pathnameChangeEvent.deleteMany();
+    const delete4 = this.mongo.leaveAppEvent.deleteMany();
+    const delete5 = this.mongo.click.deleteMany();
+    const delete6 = this.mongo.browser.deleteMany();
+    const delete7 = this.mongo.oS.deleteMany();
+    const delete8 = this.mongo.window.deleteMany();
+    const delete9 = this.mongo.userAgent.deleteMany();
+
+    return await this.mongo.$transaction([
+      delete5,
+      delete6,
+      delete7,
+      delete8,
+      delete9,
+      delete1,
+      delete2,
+      delete3,
+      delete4,
+    ]);
+  }
 }

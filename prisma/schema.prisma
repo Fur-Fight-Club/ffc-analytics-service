@@ -39,9 +39,9 @@ model MouseClickEvent {
   user        Int
   uuid        String
   pathname    String
-  click       Click     @relation(fields: [clickId], references: [id])
-  window      Window    @relation(fields: [windowId], references: [id])
-  userAgent   UserAgent @relation(fields: [userAgentId], references: [id])
+  click       Click     @relation(fields: [clickId], references: [id], onDelete: Cascade)
+  window      Window    @relation(fields: [windowId], references: [id], onDelete: Cascade)
+  userAgent   UserAgent @relation(fields: [userAgentId], references: [id], onDelete: Cascade)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   clickId     String
@@ -58,7 +58,7 @@ model PathnameChangeEvent {
   uuid        String
   startTime   Int
   endTime     Int
-  userAgent   UserAgent @relation(fields: [userAgentId], references: [id])
+  userAgent   UserAgent @relation(fields: [userAgentId], references: [id], onDelete: Cascade)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   userAgentId String
@@ -72,7 +72,7 @@ model LeaveAppEvent {
   user         Int
   uuid         String
   visitedPages Json
-  userAgent    UserAgent @relation(fields: [userAgentId], references: [id])
+  userAgent    UserAgent @relation(fields: [userAgentId], references: [id], onDelete: Cascade)
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
   userAgentId  String
@@ -94,8 +94,8 @@ model Window {
 
 model UserAgent {
   id                  String                @id @default(cuid()) @map("_id")
-  browser             Browser               @relation(fields: [browserId], references: [id])
-  os                  OS                    @relation(fields: [oSId], references: [id])
+  browser             Browser               @relation(fields: [browserId], references: [id], onDelete: Cascade)
+  os                  OS                    @relation(fields: [oSId], references: [id], onDelete: Cascade)
   platform            String
   language            String
   MouseClickEvent     MouseClickEvent[]

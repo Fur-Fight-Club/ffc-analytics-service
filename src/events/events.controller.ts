@@ -72,4 +72,9 @@ export class EventsController {
   async getLeaveAppEvents(): Promise<LeaveAppEvent[]> {
     return await this.eventsService.getLeaveAppEvents();
   }
+
+  @Get("reset-all")
+  async resetAll(): Promise<any> {
+    return await this.eventsService.resetAll();
+  }
 }
