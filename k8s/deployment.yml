@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ffc-analyctics-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ffc-analyctics
+  template:
+    metadata:
+      labels:
+        app: ffc-analyctics
+    spec:
+      containers:
+        - name: ffc-analyctics
+          image: mcamus9/ffc-analytics-docker
+          ports:
+            - containerPort: 4001
