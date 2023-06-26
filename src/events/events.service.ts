@@ -1,6 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import {
   ButtonClickDto,
+  GetHeatmapDataDto,
+  HeatmapData,
   LeaveAppEventDto,
   MouseClickDto,
   PathnameChangeDto,
@@ -208,5 +210,36 @@ export class EventsService {
       delete3,
       delete4,
     ]);
+  }
+
+  async getHeatmapData(
+    getHeatmapData: GetHeatmapDataDto
+  ): Promise<HeatmapData[]> {
+    const { count, route } = getHeatmapData;
+
+    const mongoData = await this.mongo.mouseClickEvent.findMany({
+      where: {
+        pathname: route,
+      },
+      take: count,
+      orderBy: {
+        timestamp: "asc",
+      },
+      select: {
+        click: {
+          select: {
+            x: true,
+            y: true,
+          },
+        },
+        window: {
+          select: {
+            width: true,
+            height: true,
+          },
+        },
+      },
+    });
+    return mongoData;
   }
 }

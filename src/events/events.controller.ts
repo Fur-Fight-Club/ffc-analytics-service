@@ -2,6 +2,8 @@ import { Body, Controller, Get, Post } from "@nestjs/common";
 import { EventsService } from "./events.service";
 import {
   ButtonClickDto,
+  GetHeatmapDataDto,
+  HeatmapData,
   LeaveAppEventDto,
   MouseClickDto,
   PathnameChangeDto,
@@ -76,5 +78,12 @@ export class EventsController {
   @Get("reset-all")
   async resetAll(): Promise<any> {
     return await this.eventsService.resetAll();
+  }
+
+  @Post("heatmap-data")
+  async getHeatmapData(
+    @Body(ZodValidationPipe) getHeatmapData: GetHeatmapDataDto
+  ): Promise<HeatmapData[]> {
+    return await this.eventsService.getHeatmapData(getHeatmapData);
   }
 }
