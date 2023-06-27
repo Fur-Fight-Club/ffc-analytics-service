@@ -15,5 +15,6 @@ spec:
       containers:
         - name: ffc-analyctics
           image: mcamus9/ffc-analytics-docker
+          imagePullPolicy: Always
           ports:
             - containerPort: 4001
