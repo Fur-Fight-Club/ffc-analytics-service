@@ -9,6 +9,7 @@ COPY package*.json ./
 
 # Étape 4 : Installer les dépendances de l'application
 RUN npm install
+RUN npx prisma generate
 
 # Étape 5 : Copier les fichiers source de l'application dans le conteneur
 COPY . .
