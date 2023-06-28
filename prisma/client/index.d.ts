@@ -456,7 +456,7 @@ export namespace Prisma {
   export type Exact<T, W> = $Public.Exact<T, W>
 
   /**
-   * Prisma Client JS version: 4.16.0
+   * Prisma Client JS version: 4.16.1
    * Query Engine version: b20ead4d3ab9e78ac112966e242ded703f4a052c
    */
   export type PrismaVersion = {
@@ -906,805 +906,825 @@ export namespace Prisma {
   }
 
   export type TypeMap<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
-      meta: {
-        modelProps: 'buttonEvent' | 'mouseClickEvent' | 'pathnameChangeEvent' | 'leaveAppEvent' | 'click' | 'window' | 'userAgent' | 'browser' | 'oS'
-        txIsolationLevel: never
-      },
-      model: {
+    meta: {
+      modelProps: 'buttonEvent' | 'mouseClickEvent' | 'pathnameChangeEvent' | 'leaveAppEvent' | 'click' | 'window' | 'userAgent' | 'browser' | 'oS'
+      txIsolationLevel: never
+    },
+    model: {
       ButtonEvent: {
-        findUnique: {
-          args: Prisma.ButtonEventFindUniqueArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        findUniqueOrThrow: {
-          args: Prisma.ButtonEventFindUniqueOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        findFirst: {
-          args: Prisma.ButtonEventFindFirstArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        findFirstOrThrow: {
-          args: Prisma.ButtonEventFindFirstOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        findMany: {
-          args: Prisma.ButtonEventFindManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        create: {
-          args: Prisma.ButtonEventCreateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        createMany: {
-          args: Prisma.ButtonEventCreateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        delete: {
-          args: Prisma.ButtonEventDeleteArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        update: {
-          args: Prisma.ButtonEventUpdateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        deleteMany: {
-          args: Prisma.ButtonEventDeleteManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        updateMany: {
-          args: Prisma.ButtonEventUpdateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        upsert: {
-          args: Prisma.ButtonEventUpsertArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        aggregate: {
-          args: Prisma.ButtonEventAggregateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        groupBy: {
-          args: Prisma.ButtonEventGroupByArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        findRaw: {
-          args: Prisma.ButtonEventFindRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        aggregateRaw: {
-          args: Prisma.ButtonEventAggregateRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
-        }
-        count: {
-          args: Prisma.ButtonEventCountArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<ButtonEvent>
-          payload: ButtonEventPayload<ExtArgs>
+        operations: {
+          findUnique: {
+            args: Prisma.ButtonEventFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ButtonEventPayload> | null
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ButtonEventFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ButtonEventPayload>
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          findFirst: {
+            args: Prisma.ButtonEventFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ButtonEventPayload> | null
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          findFirstOrThrow: {
+            args: Prisma.ButtonEventFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ButtonEventPayload>
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          findMany: {
+            args: Prisma.ButtonEventFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ButtonEventPayload>[]
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          create: {
+            args: Prisma.ButtonEventCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ButtonEventPayload>
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          createMany: {
+            args: Prisma.ButtonEventCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          delete: {
+            args: Prisma.ButtonEventDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ButtonEventPayload>
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          update: {
+            args: Prisma.ButtonEventUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ButtonEventPayload>
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          deleteMany: {
+            args: Prisma.ButtonEventDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          updateMany: {
+            args: Prisma.ButtonEventUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          upsert: {
+            args: Prisma.ButtonEventUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ButtonEventPayload>
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          aggregate: {
+            args: Prisma.ButtonEventAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateButtonEvent>
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          groupBy: {
+            args: Prisma.ButtonEventGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<ButtonEventGroupByOutputType>[]
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          findRaw: {
+            args: Prisma.ButtonEventFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          aggregateRaw: {
+            args: Prisma.ButtonEventAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: ButtonEventPayload<ExtArgs>
+          }
+          count: {
+            args: Prisma.ButtonEventCountArgs<ExtArgs>,
+            result: $Utils.Optional<ButtonEventCountAggregateOutputType> | number
+            payload: ButtonEventPayload<ExtArgs>
+          }
         }
       }
       MouseClickEvent: {
-        findUnique: {
-          args: Prisma.MouseClickEventFindUniqueArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        findUniqueOrThrow: {
-          args: Prisma.MouseClickEventFindUniqueOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        findFirst: {
-          args: Prisma.MouseClickEventFindFirstArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        findFirstOrThrow: {
-          args: Prisma.MouseClickEventFindFirstOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        findMany: {
-          args: Prisma.MouseClickEventFindManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        create: {
-          args: Prisma.MouseClickEventCreateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        createMany: {
-          args: Prisma.MouseClickEventCreateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        delete: {
-          args: Prisma.MouseClickEventDeleteArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        update: {
-          args: Prisma.MouseClickEventUpdateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        deleteMany: {
-          args: Prisma.MouseClickEventDeleteManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        updateMany: {
-          args: Prisma.MouseClickEventUpdateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        upsert: {
-          args: Prisma.MouseClickEventUpsertArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        aggregate: {
-          args: Prisma.MouseClickEventAggregateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        groupBy: {
-          args: Prisma.MouseClickEventGroupByArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        findRaw: {
-          args: Prisma.MouseClickEventFindRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        aggregateRaw: {
-          args: Prisma.MouseClickEventAggregateRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
-        }
-        count: {
-          args: Prisma.MouseClickEventCountArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<MouseClickEvent>
-          payload: MouseClickEventPayload<ExtArgs>
+        operations: {
+          findUnique: {
+            args: Prisma.MouseClickEventFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<MouseClickEventPayload> | null
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MouseClickEventFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<MouseClickEventPayload>
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          findFirst: {
+            args: Prisma.MouseClickEventFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<MouseClickEventPayload> | null
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          findFirstOrThrow: {
+            args: Prisma.MouseClickEventFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<MouseClickEventPayload>
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          findMany: {
+            args: Prisma.MouseClickEventFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<MouseClickEventPayload>[]
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          create: {
+            args: Prisma.MouseClickEventCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<MouseClickEventPayload>
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          createMany: {
+            args: Prisma.MouseClickEventCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          delete: {
+            args: Prisma.MouseClickEventDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<MouseClickEventPayload>
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          update: {
+            args: Prisma.MouseClickEventUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<MouseClickEventPayload>
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          deleteMany: {
+            args: Prisma.MouseClickEventDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          updateMany: {
+            args: Prisma.MouseClickEventUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          upsert: {
+            args: Prisma.MouseClickEventUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<MouseClickEventPayload>
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          aggregate: {
+            args: Prisma.MouseClickEventAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateMouseClickEvent>
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          groupBy: {
+            args: Prisma.MouseClickEventGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<MouseClickEventGroupByOutputType>[]
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          findRaw: {
+            args: Prisma.MouseClickEventFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          aggregateRaw: {
+            args: Prisma.MouseClickEventAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: MouseClickEventPayload<ExtArgs>
+          }
+          count: {
+            args: Prisma.MouseClickEventCountArgs<ExtArgs>,
+            result: $Utils.Optional<MouseClickEventCountAggregateOutputType> | number
+            payload: MouseClickEventPayload<ExtArgs>
+          }
         }
       }
       PathnameChangeEvent: {
-        findUnique: {
-          args: Prisma.PathnameChangeEventFindUniqueArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        findUniqueOrThrow: {
-          args: Prisma.PathnameChangeEventFindUniqueOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        findFirst: {
-          args: Prisma.PathnameChangeEventFindFirstArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        findFirstOrThrow: {
-          args: Prisma.PathnameChangeEventFindFirstOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        findMany: {
-          args: Prisma.PathnameChangeEventFindManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        create: {
-          args: Prisma.PathnameChangeEventCreateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        createMany: {
-          args: Prisma.PathnameChangeEventCreateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        delete: {
-          args: Prisma.PathnameChangeEventDeleteArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        update: {
-          args: Prisma.PathnameChangeEventUpdateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        deleteMany: {
-          args: Prisma.PathnameChangeEventDeleteManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        updateMany: {
-          args: Prisma.PathnameChangeEventUpdateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        upsert: {
-          args: Prisma.PathnameChangeEventUpsertArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        aggregate: {
-          args: Prisma.PathnameChangeEventAggregateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        groupBy: {
-          args: Prisma.PathnameChangeEventGroupByArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        findRaw: {
-          args: Prisma.PathnameChangeEventFindRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        aggregateRaw: {
-          args: Prisma.PathnameChangeEventAggregateRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
-        }
-        count: {
-          args: Prisma.PathnameChangeEventCountArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<PathnameChangeEvent>
-          payload: PathnameChangeEventPayload<ExtArgs>
+        operations: {
+          findUnique: {
+            args: Prisma.PathnameChangeEventFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<PathnameChangeEventPayload> | null
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PathnameChangeEventFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<PathnameChangeEventPayload>
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          findFirst: {
+            args: Prisma.PathnameChangeEventFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<PathnameChangeEventPayload> | null
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          findFirstOrThrow: {
+            args: Prisma.PathnameChangeEventFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<PathnameChangeEventPayload>
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          findMany: {
+            args: Prisma.PathnameChangeEventFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<PathnameChangeEventPayload>[]
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          create: {
+            args: Prisma.PathnameChangeEventCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<PathnameChangeEventPayload>
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          createMany: {
+            args: Prisma.PathnameChangeEventCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          delete: {
+            args: Prisma.PathnameChangeEventDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<PathnameChangeEventPayload>
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          update: {
+            args: Prisma.PathnameChangeEventUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<PathnameChangeEventPayload>
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          deleteMany: {
+            args: Prisma.PathnameChangeEventDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          updateMany: {
+            args: Prisma.PathnameChangeEventUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          upsert: {
+            args: Prisma.PathnameChangeEventUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<PathnameChangeEventPayload>
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          aggregate: {
+            args: Prisma.PathnameChangeEventAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregatePathnameChangeEvent>
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          groupBy: {
+            args: Prisma.PathnameChangeEventGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<PathnameChangeEventGroupByOutputType>[]
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          findRaw: {
+            args: Prisma.PathnameChangeEventFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          aggregateRaw: {
+            args: Prisma.PathnameChangeEventAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
+          count: {
+            args: Prisma.PathnameChangeEventCountArgs<ExtArgs>,
+            result: $Utils.Optional<PathnameChangeEventCountAggregateOutputType> | number
+            payload: PathnameChangeEventPayload<ExtArgs>
+          }
         }
       }
       LeaveAppEvent: {
-        findUnique: {
-          args: Prisma.LeaveAppEventFindUniqueArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        findUniqueOrThrow: {
-          args: Prisma.LeaveAppEventFindUniqueOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        findFirst: {
-          args: Prisma.LeaveAppEventFindFirstArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        findFirstOrThrow: {
-          args: Prisma.LeaveAppEventFindFirstOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        findMany: {
-          args: Prisma.LeaveAppEventFindManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        create: {
-          args: Prisma.LeaveAppEventCreateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        createMany: {
-          args: Prisma.LeaveAppEventCreateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        delete: {
-          args: Prisma.LeaveAppEventDeleteArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        update: {
-          args: Prisma.LeaveAppEventUpdateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        deleteMany: {
-          args: Prisma.LeaveAppEventDeleteManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        updateMany: {
-          args: Prisma.LeaveAppEventUpdateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        upsert: {
-          args: Prisma.LeaveAppEventUpsertArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        aggregate: {
-          args: Prisma.LeaveAppEventAggregateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        groupBy: {
-          args: Prisma.LeaveAppEventGroupByArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        findRaw: {
-          args: Prisma.LeaveAppEventFindRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        aggregateRaw: {
-          args: Prisma.LeaveAppEventAggregateRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
-        }
-        count: {
-          args: Prisma.LeaveAppEventCountArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<LeaveAppEvent>
-          payload: LeaveAppEventPayload<ExtArgs>
+        operations: {
+          findUnique: {
+            args: Prisma.LeaveAppEventFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<LeaveAppEventPayload> | null
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LeaveAppEventFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<LeaveAppEventPayload>
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          findFirst: {
+            args: Prisma.LeaveAppEventFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<LeaveAppEventPayload> | null
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          findFirstOrThrow: {
+            args: Prisma.LeaveAppEventFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<LeaveAppEventPayload>
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          findMany: {
+            args: Prisma.LeaveAppEventFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<LeaveAppEventPayload>[]
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          create: {
+            args: Prisma.LeaveAppEventCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<LeaveAppEventPayload>
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          createMany: {
+            args: Prisma.LeaveAppEventCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          delete: {
+            args: Prisma.LeaveAppEventDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<LeaveAppEventPayload>
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          update: {
+            args: Prisma.LeaveAppEventUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<LeaveAppEventPayload>
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          deleteMany: {
+            args: Prisma.LeaveAppEventDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          updateMany: {
+            args: Prisma.LeaveAppEventUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          upsert: {
+            args: Prisma.LeaveAppEventUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<LeaveAppEventPayload>
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          aggregate: {
+            args: Prisma.LeaveAppEventAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateLeaveAppEvent>
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          groupBy: {
+            args: Prisma.LeaveAppEventGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<LeaveAppEventGroupByOutputType>[]
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          findRaw: {
+            args: Prisma.LeaveAppEventFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          aggregateRaw: {
+            args: Prisma.LeaveAppEventAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
+          count: {
+            args: Prisma.LeaveAppEventCountArgs<ExtArgs>,
+            result: $Utils.Optional<LeaveAppEventCountAggregateOutputType> | number
+            payload: LeaveAppEventPayload<ExtArgs>
+          }
         }
       }
       Click: {
-        findUnique: {
-          args: Prisma.ClickFindUniqueArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        findUniqueOrThrow: {
-          args: Prisma.ClickFindUniqueOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        findFirst: {
-          args: Prisma.ClickFindFirstArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        findFirstOrThrow: {
-          args: Prisma.ClickFindFirstOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        findMany: {
-          args: Prisma.ClickFindManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        create: {
-          args: Prisma.ClickCreateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        createMany: {
-          args: Prisma.ClickCreateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        delete: {
-          args: Prisma.ClickDeleteArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        update: {
-          args: Prisma.ClickUpdateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        deleteMany: {
-          args: Prisma.ClickDeleteManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        updateMany: {
-          args: Prisma.ClickUpdateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        upsert: {
-          args: Prisma.ClickUpsertArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        aggregate: {
-          args: Prisma.ClickAggregateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        groupBy: {
-          args: Prisma.ClickGroupByArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        findRaw: {
-          args: Prisma.ClickFindRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        aggregateRaw: {
-          args: Prisma.ClickAggregateRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
-        }
-        count: {
-          args: Prisma.ClickCountArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Click>
-          payload: ClickPayload<ExtArgs>
+        operations: {
+          findUnique: {
+            args: Prisma.ClickFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ClickPayload> | null
+            payload: ClickPayload<ExtArgs>
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClickFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ClickPayload>
+            payload: ClickPayload<ExtArgs>
+          }
+          findFirst: {
+            args: Prisma.ClickFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ClickPayload> | null
+            payload: ClickPayload<ExtArgs>
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClickFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ClickPayload>
+            payload: ClickPayload<ExtArgs>
+          }
+          findMany: {
+            args: Prisma.ClickFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ClickPayload>[]
+            payload: ClickPayload<ExtArgs>
+          }
+          create: {
+            args: Prisma.ClickCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ClickPayload>
+            payload: ClickPayload<ExtArgs>
+          }
+          createMany: {
+            args: Prisma.ClickCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: ClickPayload<ExtArgs>
+          }
+          delete: {
+            args: Prisma.ClickDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ClickPayload>
+            payload: ClickPayload<ExtArgs>
+          }
+          update: {
+            args: Prisma.ClickUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ClickPayload>
+            payload: ClickPayload<ExtArgs>
+          }
+          deleteMany: {
+            args: Prisma.ClickDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: ClickPayload<ExtArgs>
+          }
+          updateMany: {
+            args: Prisma.ClickUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: ClickPayload<ExtArgs>
+          }
+          upsert: {
+            args: Prisma.ClickUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<ClickPayload>
+            payload: ClickPayload<ExtArgs>
+          }
+          aggregate: {
+            args: Prisma.ClickAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateClick>
+            payload: ClickPayload<ExtArgs>
+          }
+          groupBy: {
+            args: Prisma.ClickGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<ClickGroupByOutputType>[]
+            payload: ClickPayload<ExtArgs>
+          }
+          findRaw: {
+            args: Prisma.ClickFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: ClickPayload<ExtArgs>
+          }
+          aggregateRaw: {
+            args: Prisma.ClickAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: ClickPayload<ExtArgs>
+          }
+          count: {
+            args: Prisma.ClickCountArgs<ExtArgs>,
+            result: $Utils.Optional<ClickCountAggregateOutputType> | number
+            payload: ClickPayload<ExtArgs>
+          }
         }
       }
       Window: {
-        findUnique: {
-          args: Prisma.WindowFindUniqueArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        findUniqueOrThrow: {
-          args: Prisma.WindowFindUniqueOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        findFirst: {
-          args: Prisma.WindowFindFirstArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        findFirstOrThrow: {
-          args: Prisma.WindowFindFirstOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        findMany: {
-          args: Prisma.WindowFindManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        create: {
-          args: Prisma.WindowCreateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        createMany: {
-          args: Prisma.WindowCreateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        delete: {
-          args: Prisma.WindowDeleteArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        update: {
-          args: Prisma.WindowUpdateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        deleteMany: {
-          args: Prisma.WindowDeleteManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        updateMany: {
-          args: Prisma.WindowUpdateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        upsert: {
-          args: Prisma.WindowUpsertArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        aggregate: {
-          args: Prisma.WindowAggregateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        groupBy: {
-          args: Prisma.WindowGroupByArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        findRaw: {
-          args: Prisma.WindowFindRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        aggregateRaw: {
-          args: Prisma.WindowAggregateRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
-        }
-        count: {
-          args: Prisma.WindowCountArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Window>
-          payload: WindowPayload<ExtArgs>
+        operations: {
+          findUnique: {
+            args: Prisma.WindowFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<WindowPayload> | null
+            payload: WindowPayload<ExtArgs>
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WindowFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<WindowPayload>
+            payload: WindowPayload<ExtArgs>
+          }
+          findFirst: {
+            args: Prisma.WindowFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<WindowPayload> | null
+            payload: WindowPayload<ExtArgs>
+          }
+          findFirstOrThrow: {
+            args: Prisma.WindowFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<WindowPayload>
+            payload: WindowPayload<ExtArgs>
+          }
+          findMany: {
+            args: Prisma.WindowFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<WindowPayload>[]
+            payload: WindowPayload<ExtArgs>
+          }
+          create: {
+            args: Prisma.WindowCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<WindowPayload>
+            payload: WindowPayload<ExtArgs>
+          }
+          createMany: {
+            args: Prisma.WindowCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: WindowPayload<ExtArgs>
+          }
+          delete: {
+            args: Prisma.WindowDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<WindowPayload>
+            payload: WindowPayload<ExtArgs>
+          }
+          update: {
+            args: Prisma.WindowUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<WindowPayload>
+            payload: WindowPayload<ExtArgs>
+          }
+          deleteMany: {
+            args: Prisma.WindowDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: WindowPayload<ExtArgs>
+          }
+          updateMany: {
+            args: Prisma.WindowUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: WindowPayload<ExtArgs>
+          }
+          upsert: {
+            args: Prisma.WindowUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<WindowPayload>
+            payload: WindowPayload<ExtArgs>
+          }
+          aggregate: {
+            args: Prisma.WindowAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateWindow>
+            payload: WindowPayload<ExtArgs>
+          }
+          groupBy: {
+            args: Prisma.WindowGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<WindowGroupByOutputType>[]
+            payload: WindowPayload<ExtArgs>
+          }
+          findRaw: {
+            args: Prisma.WindowFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: WindowPayload<ExtArgs>
+          }
+          aggregateRaw: {
+            args: Prisma.WindowAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: WindowPayload<ExtArgs>
+          }
+          count: {
+            args: Prisma.WindowCountArgs<ExtArgs>,
+            result: $Utils.Optional<WindowCountAggregateOutputType> | number
+            payload: WindowPayload<ExtArgs>
+          }
         }
       }
       UserAgent: {
-        findUnique: {
-          args: Prisma.UserAgentFindUniqueArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        findUniqueOrThrow: {
-          args: Prisma.UserAgentFindUniqueOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        findFirst: {
-          args: Prisma.UserAgentFindFirstArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        findFirstOrThrow: {
-          args: Prisma.UserAgentFindFirstOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        findMany: {
-          args: Prisma.UserAgentFindManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        create: {
-          args: Prisma.UserAgentCreateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        createMany: {
-          args: Prisma.UserAgentCreateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        delete: {
-          args: Prisma.UserAgentDeleteArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        update: {
-          args: Prisma.UserAgentUpdateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        deleteMany: {
-          args: Prisma.UserAgentDeleteManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        updateMany: {
-          args: Prisma.UserAgentUpdateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        upsert: {
-          args: Prisma.UserAgentUpsertArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        aggregate: {
-          args: Prisma.UserAgentAggregateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        groupBy: {
-          args: Prisma.UserAgentGroupByArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        findRaw: {
-          args: Prisma.UserAgentFindRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        aggregateRaw: {
-          args: Prisma.UserAgentAggregateRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
-        }
-        count: {
-          args: Prisma.UserAgentCountArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<UserAgent>
-          payload: UserAgentPayload<ExtArgs>
+        operations: {
+          findUnique: {
+            args: Prisma.UserAgentFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<UserAgentPayload> | null
+            payload: UserAgentPayload<ExtArgs>
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserAgentFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<UserAgentPayload>
+            payload: UserAgentPayload<ExtArgs>
+          }
+          findFirst: {
+            args: Prisma.UserAgentFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<UserAgentPayload> | null
+            payload: UserAgentPayload<ExtArgs>
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserAgentFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<UserAgentPayload>
+            payload: UserAgentPayload<ExtArgs>
+          }
+          findMany: {
+            args: Prisma.UserAgentFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<UserAgentPayload>[]
+            payload: UserAgentPayload<ExtArgs>
+          }
+          create: {
+            args: Prisma.UserAgentCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<UserAgentPayload>
+            payload: UserAgentPayload<ExtArgs>
+          }
+          createMany: {
+            args: Prisma.UserAgentCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: UserAgentPayload<ExtArgs>
+          }
+          delete: {
+            args: Prisma.UserAgentDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<UserAgentPayload>
+            payload: UserAgentPayload<ExtArgs>
+          }
+          update: {
+            args: Prisma.UserAgentUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<UserAgentPayload>
+            payload: UserAgentPayload<ExtArgs>
+          }
+          deleteMany: {
+            args: Prisma.UserAgentDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: UserAgentPayload<ExtArgs>
+          }
+          updateMany: {
+            args: Prisma.UserAgentUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: UserAgentPayload<ExtArgs>
+          }
+          upsert: {
+            args: Prisma.UserAgentUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<UserAgentPayload>
+            payload: UserAgentPayload<ExtArgs>
+          }
+          aggregate: {
+            args: Prisma.UserAgentAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateUserAgent>
+            payload: UserAgentPayload<ExtArgs>
+          }
+          groupBy: {
+            args: Prisma.UserAgentGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<UserAgentGroupByOutputType>[]
+            payload: UserAgentPayload<ExtArgs>
+          }
+          findRaw: {
+            args: Prisma.UserAgentFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: UserAgentPayload<ExtArgs>
+          }
+          aggregateRaw: {
+            args: Prisma.UserAgentAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: UserAgentPayload<ExtArgs>
+          }
+          count: {
+            args: Prisma.UserAgentCountArgs<ExtArgs>,
+            result: $Utils.Optional<UserAgentCountAggregateOutputType> | number
+            payload: UserAgentPayload<ExtArgs>
+          }
         }
       }
       Browser: {
-        findUnique: {
-          args: Prisma.BrowserFindUniqueArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        findUniqueOrThrow: {
-          args: Prisma.BrowserFindUniqueOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        findFirst: {
-          args: Prisma.BrowserFindFirstArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        findFirstOrThrow: {
-          args: Prisma.BrowserFindFirstOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        findMany: {
-          args: Prisma.BrowserFindManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        create: {
-          args: Prisma.BrowserCreateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        createMany: {
-          args: Prisma.BrowserCreateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        delete: {
-          args: Prisma.BrowserDeleteArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        update: {
-          args: Prisma.BrowserUpdateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        deleteMany: {
-          args: Prisma.BrowserDeleteManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        updateMany: {
-          args: Prisma.BrowserUpdateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        upsert: {
-          args: Prisma.BrowserUpsertArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        aggregate: {
-          args: Prisma.BrowserAggregateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        groupBy: {
-          args: Prisma.BrowserGroupByArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        findRaw: {
-          args: Prisma.BrowserFindRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        aggregateRaw: {
-          args: Prisma.BrowserAggregateRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
-        }
-        count: {
-          args: Prisma.BrowserCountArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<Browser>
-          payload: BrowserPayload<ExtArgs>
+        operations: {
+          findUnique: {
+            args: Prisma.BrowserFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<BrowserPayload> | null
+            payload: BrowserPayload<ExtArgs>
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BrowserFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<BrowserPayload>
+            payload: BrowserPayload<ExtArgs>
+          }
+          findFirst: {
+            args: Prisma.BrowserFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<BrowserPayload> | null
+            payload: BrowserPayload<ExtArgs>
+          }
+          findFirstOrThrow: {
+            args: Prisma.BrowserFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<BrowserPayload>
+            payload: BrowserPayload<ExtArgs>
+          }
+          findMany: {
+            args: Prisma.BrowserFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<BrowserPayload>[]
+            payload: BrowserPayload<ExtArgs>
+          }
+          create: {
+            args: Prisma.BrowserCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<BrowserPayload>
+            payload: BrowserPayload<ExtArgs>
+          }
+          createMany: {
+            args: Prisma.BrowserCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: BrowserPayload<ExtArgs>
+          }
+          delete: {
+            args: Prisma.BrowserDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<BrowserPayload>
+            payload: BrowserPayload<ExtArgs>
+          }
+          update: {
+            args: Prisma.BrowserUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<BrowserPayload>
+            payload: BrowserPayload<ExtArgs>
+          }
+          deleteMany: {
+            args: Prisma.BrowserDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: BrowserPayload<ExtArgs>
+          }
+          updateMany: {
+            args: Prisma.BrowserUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: BrowserPayload<ExtArgs>
+          }
+          upsert: {
+            args: Prisma.BrowserUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<BrowserPayload>
+            payload: BrowserPayload<ExtArgs>
+          }
+          aggregate: {
+            args: Prisma.BrowserAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateBrowser>
+            payload: BrowserPayload<ExtArgs>
+          }
+          groupBy: {
+            args: Prisma.BrowserGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<BrowserGroupByOutputType>[]
+            payload: BrowserPayload<ExtArgs>
+          }
+          findRaw: {
+            args: Prisma.BrowserFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: BrowserPayload<ExtArgs>
+          }
+          aggregateRaw: {
+            args: Prisma.BrowserAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: BrowserPayload<ExtArgs>
+          }
+          count: {
+            args: Prisma.BrowserCountArgs<ExtArgs>,
+            result: $Utils.Optional<BrowserCountAggregateOutputType> | number
+            payload: BrowserPayload<ExtArgs>
+          }
         }
       }
       OS: {
-        findUnique: {
-          args: Prisma.OSFindUniqueArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        findUniqueOrThrow: {
-          args: Prisma.OSFindUniqueOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        findFirst: {
-          args: Prisma.OSFindFirstArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        findFirstOrThrow: {
-          args: Prisma.OSFindFirstOrThrowArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        findMany: {
-          args: Prisma.OSFindManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        create: {
-          args: Prisma.OSCreateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        createMany: {
-          args: Prisma.OSCreateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        delete: {
-          args: Prisma.OSDeleteArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        update: {
-          args: Prisma.OSUpdateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        deleteMany: {
-          args: Prisma.OSDeleteManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        updateMany: {
-          args: Prisma.OSUpdateManyArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        upsert: {
-          args: Prisma.OSUpsertArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        aggregate: {
-          args: Prisma.OSAggregateArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        groupBy: {
-          args: Prisma.OSGroupByArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        findRaw: {
-          args: Prisma.OSFindRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        aggregateRaw: {
-          args: Prisma.OSAggregateRawArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
-        }
-        count: {
-          args: Prisma.OSCountArgs<ExtArgs>,
-          result: $Utils.OptionalFlat<OS>
-          payload: OSPayload<ExtArgs>
+        operations: {
+          findUnique: {
+            args: Prisma.OSFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<OSPayload> | null
+            payload: OSPayload<ExtArgs>
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OSFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<OSPayload>
+            payload: OSPayload<ExtArgs>
+          }
+          findFirst: {
+            args: Prisma.OSFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<OSPayload> | null
+            payload: OSPayload<ExtArgs>
+          }
+          findFirstOrThrow: {
+            args: Prisma.OSFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<OSPayload>
+            payload: OSPayload<ExtArgs>
+          }
+          findMany: {
+            args: Prisma.OSFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<OSPayload>[]
+            payload: OSPayload<ExtArgs>
+          }
+          create: {
+            args: Prisma.OSCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<OSPayload>
+            payload: OSPayload<ExtArgs>
+          }
+          createMany: {
+            args: Prisma.OSCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: OSPayload<ExtArgs>
+          }
+          delete: {
+            args: Prisma.OSDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<OSPayload>
+            payload: OSPayload<ExtArgs>
+          }
+          update: {
+            args: Prisma.OSUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<OSPayload>
+            payload: OSPayload<ExtArgs>
+          }
+          deleteMany: {
+            args: Prisma.OSDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: OSPayload<ExtArgs>
+          }
+          updateMany: {
+            args: Prisma.OSUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: OSPayload<ExtArgs>
+          }
+          upsert: {
+            args: Prisma.OSUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<OSPayload>
+            payload: OSPayload<ExtArgs>
+          }
+          aggregate: {
+            args: Prisma.OSAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateOS>
+            payload: OSPayload<ExtArgs>
+          }
+          groupBy: {
+            args: Prisma.OSGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<OSGroupByOutputType>[]
+            payload: OSPayload<ExtArgs>
+          }
+          findRaw: {
+            args: Prisma.OSFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: OSPayload<ExtArgs>
+          }
+          aggregateRaw: {
+            args: Prisma.OSAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: OSPayload<ExtArgs>
+          }
+          count: {
+            args: Prisma.OSCountArgs<ExtArgs>,
+            result: $Utils.Optional<OSCountAggregateOutputType> | number
+            payload: OSPayload<ExtArgs>
+          }
         }
       }
     }
   } & {
     other: {
-      $runCommandRaw: {
-        args: Prisma.InputJsonObject,
-        result: Prisma.JsonObject
-        payload: any
+      operations: {
+        $runCommandRaw: {
+          args: Prisma.InputJsonObject,
+          result: Prisma.JsonObject
+          payload: any
+        }
       }
     }
   }
-    export const defineExtension: $Extensions.ExtendsHook<'define', Prisma.TypeMapCb, $Extensions.DefaultArgs>
+  export const defineExtension: $Extensions.ExtendsHook<'define', Prisma.TypeMapCb, $Extensions.DefaultArgs>
   export type DefaultPrismaClient = PrismaClient
   export type RejectOnNotFound = boolean | ((error: Error) => Error)
   export type RejectPerModel = { [P in ModelName]?: RejectOnNotFound }

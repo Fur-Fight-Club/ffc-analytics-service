@@ -13,11 +13,6 @@ export class AppController {
       "Checking the health of the server and database. Mainly for AWS healthchecks.",
     type: ServerHealthcheck,
   })
-  @Get("ping")
-  async healthcheck(): Promise<object> {
-    return await this.appService.healthcheck();
-  }
-
   @Get("test")
   async test(): Promise<object> {
     return await this.appService.test();
