@@ -14,7 +14,7 @@ import {
   LeaveAppEvent,
   MouseClickEvent,
   PathnameChangeEvent,
-} from "@prisma/client";
+} from "prisma/client";
 
 @Injectable()
 export class EventsService {

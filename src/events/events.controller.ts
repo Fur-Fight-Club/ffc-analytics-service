@@ -15,7 +15,7 @@ import {
   LeaveAppEvent,
   MouseClickEvent,
   PathnameChangeEvent,
-} from "@prisma/client";
+} from "prisma/client";
 
 @Controller("events")
 @ApiTags("Events")
