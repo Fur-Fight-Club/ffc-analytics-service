@@ -59,5 +59,5 @@ jobs:
     - name: ✈️ Deploy to GKE
       run: |
         gcloud container clusters get-credentials fury-fight-club --region europe-west1 --project fury-fight-club-386613
-        kubectl set image deployment/ffc-analyctics-deployment ffc-analytics=mcamus9/ffc-analytics-docker:latest
+        kubectl set image deployment/ffc-analyctics-deployment ffc-analyctics=mcamus9/ffc-analytics-docker:latest
         kubectl rollout restart deployment/ffc-analyctics-deployment
