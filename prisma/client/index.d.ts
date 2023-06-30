@@ -111,6 +111,27 @@ export type LeaveAppEventPayload<ExtArgs extends $Extensions.Args = $Extensions.
  * 
  */
 export type LeaveAppEvent = runtime.Types.DefaultSelection<LeaveAppEventPayload>
+export type DemographicEventPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  objects: {}
+  scalars: $Extensions.GetResult<{
+    id: string
+    event: EventType
+    timestamp: number
+    ip: string
+    isp: string
+    country: string
+    timezone: string
+    latitude: number
+    longitude: number
+  }, ExtArgs["result"]["demographicEvent"]>
+  composites: {}
+}
+
+/**
+ * Model DemographicEvent
+ * 
+ */
+export type DemographicEvent = runtime.Types.DefaultSelection<DemographicEventPayload>
 export type ClickPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
   objects: {
     MouseClickEvent: MouseClickEventPayload<ExtArgs>[]
@@ -211,7 +232,8 @@ export const EventType: {
   button_click: 'button_click',
   mouse_click: 'mouse_click',
   pathname_change: 'pathname_change',
-  page_unload: 'page_unload'
+  page_unload: 'page_unload',
+  demographic: 'demographic'
 };
 
 export type EventType = (typeof EventType)[keyof typeof EventType]
@@ -349,6 +371,16 @@ export class PrismaClient<
     * ```
     */
   get leaveAppEvent(): Prisma.LeaveAppEventDelegate<GlobalReject, ExtArgs>;
+
+  /**
+   * `prisma.demographicEvent`: Exposes CRUD operations for the **DemographicEvent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DemographicEvents
+    * const demographicEvents = await prisma.demographicEvent.findMany()
+    * ```
+    */
+  get demographicEvent(): Prisma.DemographicEventDelegate<GlobalReject, ExtArgs>;
 
   /**
    * `prisma.click`: Exposes CRUD operations for the **Click** model.
@@ -886,6 +918,7 @@ export namespace Prisma {
     MouseClickEvent: 'MouseClickEvent',
     PathnameChangeEvent: 'PathnameChangeEvent',
     LeaveAppEvent: 'LeaveAppEvent',
+    DemographicEvent: 'DemographicEvent',
     Click: 'Click',
     Window: 'Window',
     UserAgent: 'UserAgent',
@@ -907,7 +940,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'buttonEvent' | 'mouseClickEvent' | 'pathnameChangeEvent' | 'leaveAppEvent' | 'click' | 'window' | 'userAgent' | 'browser' | 'oS'
+      modelProps: 'buttonEvent' | 'mouseClickEvent' | 'pathnameChangeEvent' | 'leaveAppEvent' | 'demographicEvent' | 'click' | 'window' | 'userAgent' | 'browser' | 'oS'
       txIsolationLevel: never
     },
     model: {
@@ -1264,6 +1297,95 @@ export namespace Prisma {
             args: Prisma.LeaveAppEventCountArgs<ExtArgs>,
             result: $Utils.Optional<LeaveAppEventCountAggregateOutputType> | number
             payload: LeaveAppEventPayload<ExtArgs>
+          }
+        }
+      }
+      DemographicEvent: {
+        operations: {
+          findUnique: {
+            args: Prisma.DemographicEventFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<DemographicEventPayload> | null
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DemographicEventFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<DemographicEventPayload>
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          findFirst: {
+            args: Prisma.DemographicEventFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<DemographicEventPayload> | null
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          findFirstOrThrow: {
+            args: Prisma.DemographicEventFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<DemographicEventPayload>
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          findMany: {
+            args: Prisma.DemographicEventFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<DemographicEventPayload>[]
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          create: {
+            args: Prisma.DemographicEventCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<DemographicEventPayload>
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          createMany: {
+            args: Prisma.DemographicEventCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          delete: {
+            args: Prisma.DemographicEventDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<DemographicEventPayload>
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          update: {
+            args: Prisma.DemographicEventUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<DemographicEventPayload>
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          deleteMany: {
+            args: Prisma.DemographicEventDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          updateMany: {
+            args: Prisma.DemographicEventUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          upsert: {
+            args: Prisma.DemographicEventUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<DemographicEventPayload>
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          aggregate: {
+            args: Prisma.DemographicEventAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateDemographicEvent>
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          groupBy: {
+            args: Prisma.DemographicEventGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<DemographicEventGroupByOutputType>[]
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          findRaw: {
+            args: Prisma.DemographicEventFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          aggregateRaw: {
+            args: Prisma.DemographicEventAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+            payload: DemographicEventPayload<ExtArgs>
+          }
+          count: {
+            args: Prisma.DemographicEventCountArgs<ExtArgs>,
+            result: $Utils.Optional<DemographicEventCountAggregateOutputType> | number
+            payload: DemographicEventPayload<ExtArgs>
           }
         }
       }
@@ -6316,6 +6438,1018 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well.
      */
     include?: LeaveAppEventInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model DemographicEvent
+   */
+
+
+  export type AggregateDemographicEvent = {
+    _count: DemographicEventCountAggregateOutputType | null
+    _avg: DemographicEventAvgAggregateOutputType | null
+    _sum: DemographicEventSumAggregateOutputType | null
+    _min: DemographicEventMinAggregateOutputType | null
+    _max: DemographicEventMaxAggregateOutputType | null
+  }
+
+  export type DemographicEventAvgAggregateOutputType = {
+    timestamp: number | null
+    latitude: number | null
+    longitude: number | null
+  }
+
+  export type DemographicEventSumAggregateOutputType = {
+    timestamp: number | null
+    latitude: number | null
+    longitude: number | null
+  }
+
+  export type DemographicEventMinAggregateOutputType = {
+    id: string | null
+    event: EventType | null
+    timestamp: number | null
+    ip: string | null
+    isp: string | null
+    country: string | null
+    timezone: string | null
+    latitude: number | null
+    longitude: number | null
+  }
+
+  export type DemographicEventMaxAggregateOutputType = {
+    id: string | null
+    event: EventType | null
+    timestamp: number | null
+    ip: string | null
+    isp: string | null
+    country: string | null
+    timezone: string | null
+    latitude: number | null
+    longitude: number | null
+  }
+
+  export type DemographicEventCountAggregateOutputType = {
+    id: number
+    event: number
+    timestamp: number
+    ip: number
+    isp: number
+    country: number
+    timezone: number
+    latitude: number
+    longitude: number
+    _all: number
+  }
+
+
+  export type DemographicEventAvgAggregateInputType = {
+    timestamp?: true
+    latitude?: true
+    longitude?: true
+  }
+
+  export type DemographicEventSumAggregateInputType = {
+    timestamp?: true
+    latitude?: true
+    longitude?: true
+  }
+
+  export type DemographicEventMinAggregateInputType = {
+    id?: true
+    event?: true
+    timestamp?: true
+    ip?: true
+    isp?: true
+    country?: true
+    timezone?: true
+    latitude?: true
+    longitude?: true
+  }
+
+  export type DemographicEventMaxAggregateInputType = {
+    id?: true
+    event?: true
+    timestamp?: true
+    ip?: true
+    isp?: true
+    country?: true
+    timezone?: true
+    latitude?: true
+    longitude?: true
+  }
+
+  export type DemographicEventCountAggregateInputType = {
+    id?: true
+    event?: true
+    timestamp?: true
+    ip?: true
+    isp?: true
+    country?: true
+    timezone?: true
+    latitude?: true
+    longitude?: true
+    _all?: true
+  }
+
+  export type DemographicEventAggregateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DemographicEvent to aggregate.
+     */
+    where?: DemographicEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DemographicEvents to fetch.
+     */
+    orderBy?: Enumerable<DemographicEventOrderByWithRelationInput>
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DemographicEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DemographicEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DemographicEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DemographicEvents
+    **/
+    _count?: true | DemographicEventCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DemographicEventAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DemographicEventSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DemographicEventMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DemographicEventMaxAggregateInputType
+  }
+
+  export type GetDemographicEventAggregateType<T extends DemographicEventAggregateArgs> = {
+        [P in keyof T & keyof AggregateDemographicEvent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDemographicEvent[P]>
+      : GetScalarType<T[P], AggregateDemographicEvent[P]>
+  }
+
+
+
+
+  export type DemographicEventGroupByArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    where?: DemographicEventWhereInput
+    orderBy?: Enumerable<DemographicEventOrderByWithAggregationInput>
+    by: DemographicEventScalarFieldEnum[]
+    having?: DemographicEventScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DemographicEventCountAggregateInputType | true
+    _avg?: DemographicEventAvgAggregateInputType
+    _sum?: DemographicEventSumAggregateInputType
+    _min?: DemographicEventMinAggregateInputType
+    _max?: DemographicEventMaxAggregateInputType
+  }
+
+
+  export type DemographicEventGroupByOutputType = {
+    id: string
+    event: EventType
+    timestamp: number
+    ip: string
+    isp: string
+    country: string
+    timezone: string
+    latitude: number
+    longitude: number
+    _count: DemographicEventCountAggregateOutputType | null
+    _avg: DemographicEventAvgAggregateOutputType | null
+    _sum: DemographicEventSumAggregateOutputType | null
+    _min: DemographicEventMinAggregateOutputType | null
+    _max: DemographicEventMaxAggregateOutputType | null
+  }
+
+  type GetDemographicEventGroupByPayload<T extends DemographicEventGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickArray<DemographicEventGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DemographicEventGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DemographicEventGroupByOutputType[P]>
+            : GetScalarType<T[P], DemographicEventGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DemographicEventSelect<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    event?: boolean
+    timestamp?: boolean
+    ip?: boolean
+    isp?: boolean
+    country?: boolean
+    timezone?: boolean
+    latitude?: boolean
+    longitude?: boolean
+  }, ExtArgs["result"]["demographicEvent"]>
+
+  export type DemographicEventSelectScalar = {
+    id?: boolean
+    event?: boolean
+    timestamp?: boolean
+    ip?: boolean
+    isp?: boolean
+    country?: boolean
+    timezone?: boolean
+    latitude?: boolean
+    longitude?: boolean
+  }
+
+
+  type DemographicEventGetPayload<S extends boolean | null | undefined | DemographicEventArgs> = $Types.GetResult<DemographicEventPayload, S>
+
+  type DemographicEventCountArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = 
+    Omit<DemographicEventFindManyArgs, 'select' | 'include'> & {
+      select?: DemographicEventCountAggregateInputType | true
+    }
+
+  export interface DemographicEventDelegate<GlobalRejectSettings extends Prisma.RejectOnNotFound | Prisma.RejectPerOperation | false | undefined, ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DemographicEvent'], meta: { name: 'DemographicEvent' } }
+    /**
+     * Find zero or one DemographicEvent that matches the filter.
+     * @param {DemographicEventFindUniqueArgs} args - Arguments to find a DemographicEvent
+     * @example
+     * // Get one DemographicEvent
+     * const demographicEvent = await prisma.demographicEvent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends DemographicEventFindUniqueArgs<ExtArgs>, LocalRejectSettings = T["rejectOnNotFound"] extends RejectOnNotFound ? T['rejectOnNotFound'] : undefined>(
+      args: SelectSubset<T, DemographicEventFindUniqueArgs<ExtArgs>>
+    ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findUnique', 'DemographicEvent'> extends True ? Prisma__DemographicEventClient<$Types.GetResult<DemographicEventPayload<ExtArgs>, T, 'findUnique', never>, never, ExtArgs> : Prisma__DemographicEventClient<$Types.GetResult<DemographicEventPayload<ExtArgs>, T, 'findUnique', never> | null, null, ExtArgs>
+
+    /**
+     * Find one DemographicEvent that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {DemographicEventFindUniqueOrThrowArgs} args - Arguments to find a DemographicEvent
+     * @example
+     * // Get one DemographicEvent
+     * const demographicEvent = await prisma.demographicEvent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends DemographicEventFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DemographicEventFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__DemographicEventClient<$Types.GetResult<DemographicEventPayload<ExtArgs>, T, 'findUniqueOrThrow', never>, never, ExtArgs>
+
+    /**
+     * Find the first DemographicEvent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DemographicEventFindFirstArgs} args - Arguments to find a DemographicEvent
+     * @example
+     * // Get one DemographicEvent
+     * const demographicEvent = await prisma.demographicEvent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends DemographicEventFindFirstArgs<ExtArgs>, LocalRejectSettings = T["rejectOnNotFound"] extends RejectOnNotFound ? T['rejectOnNotFound'] : undefined>(
+      args?: SelectSubset<T, DemographicEventFindFirstArgs<ExtArgs>>
+    ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'DemographicEvent'> extends True ? Prisma__DemographicEventClient<$Types.GetResult<DemographicEventPayload<ExtArgs>, T, 'findFirst', never>, never, ExtArgs> : Prisma__DemographicEventClient<$Types.GetResult<DemographicEventPayload<ExtArgs>, T, 'findFirst', never> | null, null, ExtArgs>
+
+    /**
+     * Find the first DemographicEvent that matches the filter or
+     * throw `NotFoundError` if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DemographicEventFindFirstOrThrowArgs} args - Arguments to find a DemographicEvent
+     * @example
+     * // Get one DemographicEvent
+     * const demographicEvent = await prisma.demographicEvent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends DemographicEventFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DemographicEventFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__DemographicEventClient<$Types.GetResult<DemographicEventPayload<ExtArgs>, T, 'findFirstOrThrow', never>, never, ExtArgs>
+
+    /**
+     * Find zero or more DemographicEvents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DemographicEventFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DemographicEvents
+     * const demographicEvents = await prisma.demographicEvent.findMany()
+     * 
+     * // Get first 10 DemographicEvents
+     * const demographicEvents = await prisma.demographicEvent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const demographicEventWithIdOnly = await prisma.demographicEvent.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends DemographicEventFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DemographicEventFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Types.GetResult<DemographicEventPayload<ExtArgs>, T, 'findMany', never>>
+
+    /**
+     * Create a DemographicEvent.
+     * @param {DemographicEventCreateArgs} args - Arguments to create a DemographicEvent.
+     * @example
+     * // Create one DemographicEvent
+     * const DemographicEvent = await prisma.demographicEvent.create({
+     *   data: {
+     *     // ... data to create a DemographicEvent
+     *   }
+     * })
+     * 
+    **/
+    create<T extends DemographicEventCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, DemographicEventCreateArgs<ExtArgs>>
+    ): Prisma__DemographicEventClient<$Types.GetResult<DemographicEventPayload<ExtArgs>, T, 'create', never>, never, ExtArgs>
+
+    /**
+     * Create many DemographicEvents.
+     *     @param {DemographicEventCreateManyArgs} args - Arguments to create many DemographicEvents.
+     *     @example
+     *     // Create many DemographicEvents
+     *     const demographicEvent = await prisma.demographicEvent.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends DemographicEventCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DemographicEventCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a DemographicEvent.
+     * @param {DemographicEventDeleteArgs} args - Arguments to delete one DemographicEvent.
+     * @example
+     * // Delete one DemographicEvent
+     * const DemographicEvent = await prisma.demographicEvent.delete({
+     *   where: {
+     *     // ... filter to delete one DemographicEvent
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends DemographicEventDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, DemographicEventDeleteArgs<ExtArgs>>
+    ): Prisma__DemographicEventClient<$Types.GetResult<DemographicEventPayload<ExtArgs>, T, 'delete', never>, never, ExtArgs>
+
+    /**
+     * Update one DemographicEvent.
+     * @param {DemographicEventUpdateArgs} args - Arguments to update one DemographicEvent.
+     * @example
+     * // Update one DemographicEvent
+     * const demographicEvent = await prisma.demographicEvent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends DemographicEventUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, DemographicEventUpdateArgs<ExtArgs>>
+    ): Prisma__DemographicEventClient<$Types.GetResult<DemographicEventPayload<ExtArgs>, T, 'update', never>, never, ExtArgs>
+
+    /**
+     * Delete zero or more DemographicEvents.
+     * @param {DemographicEventDeleteManyArgs} args - Arguments to filter DemographicEvents to delete.
+     * @example
+     * // Delete a few DemographicEvents
+     * const { count } = await prisma.demographicEvent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends DemographicEventDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DemographicEventDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DemographicEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DemographicEventUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DemographicEvents
+     * const demographicEvent = await prisma.demographicEvent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends DemographicEventUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, DemographicEventUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one DemographicEvent.
+     * @param {DemographicEventUpsertArgs} args - Arguments to update or create a DemographicEvent.
+     * @example
+     * // Update or create a DemographicEvent
+     * const demographicEvent = await prisma.demographicEvent.upsert({
+     *   create: {
+     *     // ... data to create a DemographicEvent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DemographicEvent we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends DemographicEventUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, DemographicEventUpsertArgs<ExtArgs>>
+    ): Prisma__DemographicEventClient<$Types.GetResult<DemographicEventPayload<ExtArgs>, T, 'upsert', never>, never, ExtArgs>
+
+    /**
+     * Find zero or more DemographicEvents that matches the filter.
+     * @param {DemographicEventFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const demographicEvent = await prisma.demographicEvent.findRaw({
+     *   filter: { age: { $gt: 25 } } 
+     * })
+    **/
+    findRaw(
+      args?: DemographicEventFindRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a DemographicEvent.
+     * @param {DemographicEventAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const demographicEvent = await prisma.demographicEvent.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+    **/
+    aggregateRaw(
+      args?: DemographicEventAggregateRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Count the number of DemographicEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DemographicEventCountArgs} args - Arguments to filter DemographicEvents to count.
+     * @example
+     * // Count the number of DemographicEvents
+     * const count = await prisma.demographicEvent.count({
+     *   where: {
+     *     // ... the filter for the DemographicEvents we want to count
+     *   }
+     * })
+    **/
+    count<T extends DemographicEventCountArgs>(
+      args?: Subset<T, DemographicEventCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DemographicEventCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DemographicEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DemographicEventAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DemographicEventAggregateArgs>(args: Subset<T, DemographicEventAggregateArgs>): Prisma.PrismaPromise<GetDemographicEventAggregateType<T>>
+
+    /**
+     * Group by DemographicEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DemographicEventGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DemographicEventGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DemographicEventGroupByArgs['orderBy'] }
+        : { orderBy?: DemographicEventGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends TupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DemographicEventGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDemographicEventGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DemographicEvent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export class Prisma__DemographicEventClient<T, Null = never, ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> implements Prisma.PrismaPromise<T> {
+    private readonly _dmmf;
+    private readonly _queryType;
+    private readonly _rootField;
+    private readonly _clientMethod;
+    private readonly _args;
+    private readonly _dataPath;
+    private readonly _errorFormat;
+    private readonly _measurePerformance?;
+    private _isList;
+    private _callsite;
+    private _requestPromise?;
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+    constructor(_dmmf: runtime.DMMFClass, _queryType: 'query' | 'mutation', _rootField: string, _clientMethod: string, _args: any, _dataPath: string[], _errorFormat: ErrorFormat, _measurePerformance?: boolean | undefined, _isList?: boolean);
+
+
+    private get _document();
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): Promise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): Promise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): Promise<T>;
+  }
+
+
+
+  // Custom InputTypes
+
+  /**
+   * DemographicEvent base type for findUnique actions
+   */
+  export type DemographicEventFindUniqueArgsBase<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DemographicEvent
+     */
+    select?: DemographicEventSelect<ExtArgs> | null
+    /**
+     * Filter, which DemographicEvent to fetch.
+     */
+    where: DemographicEventWhereUniqueInput
+  }
+
+  /**
+   * DemographicEvent findUnique
+   */
+  export interface DemographicEventFindUniqueArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> extends DemographicEventFindUniqueArgsBase<ExtArgs> {
+   /**
+    * Throw an Error if query returns no results
+    * @deprecated since 4.0.0: use `findUniqueOrThrow` method instead
+    */
+    rejectOnNotFound?: RejectOnNotFound
+  }
+      
+
+  /**
+   * DemographicEvent findUniqueOrThrow
+   */
+  export type DemographicEventFindUniqueOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DemographicEvent
+     */
+    select?: DemographicEventSelect<ExtArgs> | null
+    /**
+     * Filter, which DemographicEvent to fetch.
+     */
+    where: DemographicEventWhereUniqueInput
+  }
+
+
+  /**
+   * DemographicEvent base type for findFirst actions
+   */
+  export type DemographicEventFindFirstArgsBase<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DemographicEvent
+     */
+    select?: DemographicEventSelect<ExtArgs> | null
+    /**
+     * Filter, which DemographicEvent to fetch.
+     */
+    where?: DemographicEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DemographicEvents to fetch.
+     */
+    orderBy?: Enumerable<DemographicEventOrderByWithRelationInput>
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DemographicEvents.
+     */
+    cursor?: DemographicEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DemographicEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DemographicEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DemographicEvents.
+     */
+    distinct?: Enumerable<DemographicEventScalarFieldEnum>
+  }
+
+  /**
+   * DemographicEvent findFirst
+   */
+  export interface DemographicEventFindFirstArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> extends DemographicEventFindFirstArgsBase<ExtArgs> {
+   /**
+    * Throw an Error if query returns no results
+    * @deprecated since 4.0.0: use `findFirstOrThrow` method instead
+    */
+    rejectOnNotFound?: RejectOnNotFound
+  }
+      
+
+  /**
+   * DemographicEvent findFirstOrThrow
+   */
+  export type DemographicEventFindFirstOrThrowArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DemographicEvent
+     */
+    select?: DemographicEventSelect<ExtArgs> | null
+    /**
+     * Filter, which DemographicEvent to fetch.
+     */
+    where?: DemographicEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DemographicEvents to fetch.
+     */
+    orderBy?: Enumerable<DemographicEventOrderByWithRelationInput>
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DemographicEvents.
+     */
+    cursor?: DemographicEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DemographicEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DemographicEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DemographicEvents.
+     */
+    distinct?: Enumerable<DemographicEventScalarFieldEnum>
+  }
+
+
+  /**
+   * DemographicEvent findMany
+   */
+  export type DemographicEventFindManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DemographicEvent
+     */
+    select?: DemographicEventSelect<ExtArgs> | null
+    /**
+     * Filter, which DemographicEvents to fetch.
+     */
+    where?: DemographicEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DemographicEvents to fetch.
+     */
+    orderBy?: Enumerable<DemographicEventOrderByWithRelationInput>
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DemographicEvents.
+     */
+    cursor?: DemographicEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DemographicEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DemographicEvents.
+     */
+    skip?: number
+    distinct?: Enumerable<DemographicEventScalarFieldEnum>
+  }
+
+
+  /**
+   * DemographicEvent create
+   */
+  export type DemographicEventCreateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DemographicEvent
+     */
+    select?: DemographicEventSelect<ExtArgs> | null
+    /**
+     * The data needed to create a DemographicEvent.
+     */
+    data: XOR<DemographicEventCreateInput, DemographicEventUncheckedCreateInput>
+  }
+
+
+  /**
+   * DemographicEvent createMany
+   */
+  export type DemographicEventCreateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DemographicEvents.
+     */
+    data: Enumerable<DemographicEventCreateManyInput>
+  }
+
+
+  /**
+   * DemographicEvent update
+   */
+  export type DemographicEventUpdateArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DemographicEvent
+     */
+    select?: DemographicEventSelect<ExtArgs> | null
+    /**
+     * The data needed to update a DemographicEvent.
+     */
+    data: XOR<DemographicEventUpdateInput, DemographicEventUncheckedUpdateInput>
+    /**
+     * Choose, which DemographicEvent to update.
+     */
+    where: DemographicEventWhereUniqueInput
+  }
+
+
+  /**
+   * DemographicEvent updateMany
+   */
+  export type DemographicEventUpdateManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DemographicEvents.
+     */
+    data: XOR<DemographicEventUpdateManyMutationInput, DemographicEventUncheckedUpdateManyInput>
+    /**
+     * Filter which DemographicEvents to update
+     */
+    where?: DemographicEventWhereInput
+  }
+
+
+  /**
+   * DemographicEvent upsert
+   */
+  export type DemographicEventUpsertArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DemographicEvent
+     */
+    select?: DemographicEventSelect<ExtArgs> | null
+    /**
+     * The filter to search for the DemographicEvent to update in case it exists.
+     */
+    where: DemographicEventWhereUniqueInput
+    /**
+     * In case the DemographicEvent found by the `where` argument doesn't exist, create a new DemographicEvent with this data.
+     */
+    create: XOR<DemographicEventCreateInput, DemographicEventUncheckedCreateInput>
+    /**
+     * In case the DemographicEvent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DemographicEventUpdateInput, DemographicEventUncheckedUpdateInput>
+  }
+
+
+  /**
+   * DemographicEvent delete
+   */
+  export type DemographicEventDeleteArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DemographicEvent
+     */
+    select?: DemographicEventSelect<ExtArgs> | null
+    /**
+     * Filter which DemographicEvent to delete.
+     */
+    where: DemographicEventWhereUniqueInput
+  }
+
+
+  /**
+   * DemographicEvent deleteMany
+   */
+  export type DemographicEventDeleteManyArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DemographicEvents to delete
+     */
+    where?: DemographicEventWhereInput
+  }
+
+
+  /**
+   * DemographicEvent findRaw
+   */
+  export type DemographicEventFindRawArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * DemographicEvent aggregateRaw
+   */
+  export type DemographicEventAggregateRawArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * DemographicEvent without action
+   */
+  export type DemographicEventArgs<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DemographicEvent
+     */
+    select?: DemographicEventSelect<ExtArgs> | null
   }
 
 
@@ -11468,6 +12602,21 @@ export namespace Prisma {
   export type LeaveAppEventScalarFieldEnum = (typeof LeaveAppEventScalarFieldEnum)[keyof typeof LeaveAppEventScalarFieldEnum]
 
 
+  export const DemographicEventScalarFieldEnum: {
+    id: 'id',
+    event: 'event',
+    timestamp: 'timestamp',
+    ip: 'ip',
+    isp: 'isp',
+    country: 'country',
+    timezone: 'timezone',
+    latitude: 'latitude',
+    longitude: 'longitude'
+  };
+
+  export type DemographicEventScalarFieldEnum = (typeof DemographicEventScalarFieldEnum)[keyof typeof DemographicEventScalarFieldEnum]
+
+
   export const ClickScalarFieldEnum: {
     id: 'id',
     x: 'x',
@@ -11824,6 +12973,69 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter | Date | string
     updatedAt?: DateTimeWithAggregatesFilter | Date | string
     userAgentId?: StringWithAggregatesFilter | string
+  }
+
+  export type DemographicEventWhereInput = {
+    AND?: Enumerable<DemographicEventWhereInput>
+    OR?: Enumerable<DemographicEventWhereInput>
+    NOT?: Enumerable<DemographicEventWhereInput>
+    id?: StringFilter | string
+    event?: EnumEventTypeFilter | EventType
+    timestamp?: IntFilter | number
+    ip?: StringFilter | string
+    isp?: StringFilter | string
+    country?: StringFilter | string
+    timezone?: StringFilter | string
+    latitude?: FloatFilter | number
+    longitude?: FloatFilter | number
+  }
+
+  export type DemographicEventOrderByWithRelationInput = {
+    id?: SortOrder
+    event?: SortOrder
+    timestamp?: SortOrder
+    ip?: SortOrder
+    isp?: SortOrder
+    country?: SortOrder
+    timezone?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+  }
+
+  export type DemographicEventWhereUniqueInput = {
+    id?: string
+  }
+
+  export type DemographicEventOrderByWithAggregationInput = {
+    id?: SortOrder
+    event?: SortOrder
+    timestamp?: SortOrder
+    ip?: SortOrder
+    isp?: SortOrder
+    country?: SortOrder
+    timezone?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    _count?: DemographicEventCountOrderByAggregateInput
+    _avg?: DemographicEventAvgOrderByAggregateInput
+    _max?: DemographicEventMaxOrderByAggregateInput
+    _min?: DemographicEventMinOrderByAggregateInput
+    _sum?: DemographicEventSumOrderByAggregateInput
+  }
+
+  export type DemographicEventScalarWhereWithAggregatesInput = {
+    AND?: Enumerable<DemographicEventScalarWhereWithAggregatesInput>
+    OR?: Enumerable<DemographicEventScalarWhereWithAggregatesInput>
+    NOT?: Enumerable<DemographicEventScalarWhereWithAggregatesInput>
+    id?: StringWithAggregatesFilter | string
+    event?: EnumEventTypeWithAggregatesFilter | EventType
+    timestamp?: IntWithAggregatesFilter | number
+    ip?: StringWithAggregatesFilter | string
+    isp?: StringWithAggregatesFilter | string
+    country?: StringWithAggregatesFilter | string
+    timezone?: StringWithAggregatesFilter | string
+    latitude?: FloatWithAggregatesFilter | number
+    longitude?: FloatWithAggregatesFilter | number
   }
 
   export type ClickWhereInput = {
@@ -12405,6 +13617,86 @@ export namespace Prisma {
     userAgentId?: StringFieldUpdateOperationsInput | string
   }
 
+  export type DemographicEventCreateInput = {
+    id?: string
+    event?: EventType
+    timestamp: number
+    ip: string
+    isp: string
+    country: string
+    timezone: string
+    latitude: number
+    longitude: number
+  }
+
+  export type DemographicEventUncheckedCreateInput = {
+    id?: string
+    event?: EventType
+    timestamp: number
+    ip: string
+    isp: string
+    country: string
+    timezone: string
+    latitude: number
+    longitude: number
+  }
+
+  export type DemographicEventUpdateInput = {
+    event?: EnumEventTypeFieldUpdateOperationsInput | EventType
+    timestamp?: IntFieldUpdateOperationsInput | number
+    ip?: StringFieldUpdateOperationsInput | string
+    isp?: StringFieldUpdateOperationsInput | string
+    country?: StringFieldUpdateOperationsInput | string
+    timezone?: StringFieldUpdateOperationsInput | string
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type DemographicEventUncheckedUpdateInput = {
+    event?: EnumEventTypeFieldUpdateOperationsInput | EventType
+    timestamp?: IntFieldUpdateOperationsInput | number
+    ip?: StringFieldUpdateOperationsInput | string
+    isp?: StringFieldUpdateOperationsInput | string
+    country?: StringFieldUpdateOperationsInput | string
+    timezone?: StringFieldUpdateOperationsInput | string
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type DemographicEventCreateManyInput = {
+    id?: string
+    event?: EventType
+    timestamp: number
+    ip: string
+    isp: string
+    country: string
+    timezone: string
+    latitude: number
+    longitude: number
+  }
+
+  export type DemographicEventUpdateManyMutationInput = {
+    event?: EnumEventTypeFieldUpdateOperationsInput | EventType
+    timestamp?: IntFieldUpdateOperationsInput | number
+    ip?: StringFieldUpdateOperationsInput | string
+    isp?: StringFieldUpdateOperationsInput | string
+    country?: StringFieldUpdateOperationsInput | string
+    timezone?: StringFieldUpdateOperationsInput | string
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type DemographicEventUncheckedUpdateManyInput = {
+    event?: EnumEventTypeFieldUpdateOperationsInput | EventType
+    timestamp?: IntFieldUpdateOperationsInput | number
+    ip?: StringFieldUpdateOperationsInput | string
+    isp?: StringFieldUpdateOperationsInput | string
+    country?: StringFieldUpdateOperationsInput | string
+    timezone?: StringFieldUpdateOperationsInput | string
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
+  }
+
   export type ClickCreateInput = {
     id?: string
     x: number
@@ -12984,6 +14276,81 @@ export namespace Prisma {
     _max?: NestedJsonFilter
   }
 
+  export type FloatFilter = {
+    equals?: number
+    in?: Enumerable<number> | number
+    notIn?: Enumerable<number> | number
+    lt?: number
+    lte?: number
+    gt?: number
+    gte?: number
+    not?: NestedFloatFilter | number
+  }
+
+  export type DemographicEventCountOrderByAggregateInput = {
+    id?: SortOrder
+    event?: SortOrder
+    timestamp?: SortOrder
+    ip?: SortOrder
+    isp?: SortOrder
+    country?: SortOrder
+    timezone?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+  }
+
+  export type DemographicEventAvgOrderByAggregateInput = {
+    timestamp?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+  }
+
+  export type DemographicEventMaxOrderByAggregateInput = {
+    id?: SortOrder
+    event?: SortOrder
+    timestamp?: SortOrder
+    ip?: SortOrder
+    isp?: SortOrder
+    country?: SortOrder
+    timezone?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+  }
+
+  export type DemographicEventMinOrderByAggregateInput = {
+    id?: SortOrder
+    event?: SortOrder
+    timestamp?: SortOrder
+    ip?: SortOrder
+    isp?: SortOrder
+    country?: SortOrder
+    timezone?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+  }
+
+  export type DemographicEventSumOrderByAggregateInput = {
+    timestamp?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter = {
+    equals?: number
+    in?: Enumerable<number> | number
+    notIn?: Enumerable<number> | number
+    lt?: number
+    lte?: number
+    gt?: number
+    gte?: number
+    not?: NestedFloatWithAggregatesFilter | number
+    _count?: NestedIntFilter
+    _avg?: NestedFloatFilter
+    _sum?: NestedFloatFilter
+    _min?: NestedFloatFilter
+    _max?: NestedFloatFilter
+  }
+
   export type MouseClickEventListRelationFilter = {
     every?: MouseClickEventWhereInput
     some?: MouseClickEventWhereInput
@@ -13273,6 +14640,14 @@ export namespace Prisma {
     upsert?: UserAgentUpsertWithoutLeaveAppEventInput
     connect?: UserAgentWhereUniqueInput
     update?: XOR<UserAgentUpdateWithoutLeaveAppEventInput, UserAgentUncheckedUpdateWithoutLeaveAppEventInput>
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type MouseClickEventCreateNestedManyWithoutClickInput = {
@@ -13722,6 +15097,22 @@ export namespace Prisma {
   export type NestedJsonFilterBase = {
     equals?: InputJsonValue
     not?: InputJsonValue
+  }
+
+  export type NestedFloatWithAggregatesFilter = {
+    equals?: number
+    in?: Enumerable<number> | number
+    notIn?: Enumerable<number> | number
+    lt?: number
+    lte?: number
+    gt?: number
+    gte?: number
+    not?: NestedFloatWithAggregatesFilter | number
+    _count?: NestedIntFilter
+    _avg?: NestedFloatFilter
+    _sum?: NestedFloatFilter
+    _min?: NestedFloatFilter
+    _max?: NestedFloatFilter
   }
 
   export type NestedStringNullableFilter = {

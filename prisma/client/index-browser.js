@@ -153,6 +153,18 @@ exports.Prisma.LeaveAppEventScalarFieldEnum = {
   userAgentId: 'userAgentId'
 };
 
+exports.Prisma.DemographicEventScalarFieldEnum = {
+  id: 'id',
+  event: 'event',
+  timestamp: 'timestamp',
+  ip: 'ip',
+  isp: 'isp',
+  country: 'country',
+  timezone: 'timezone',
+  latitude: 'latitude',
+  longitude: 'longitude'
+};
+
 exports.Prisma.ClickScalarFieldEnum = {
   id: 'id',
   x: 'x',
@@ -198,7 +210,8 @@ exports.EventType = {
   button_click: 'button_click',
   mouse_click: 'mouse_click',
   pathname_change: 'pathname_change',
-  page_unload: 'page_unload'
+  page_unload: 'page_unload',
+  demographic: 'demographic'
 };
 
 exports.Prisma.ModelName = {
@@ -206,6 +219,7 @@ exports.Prisma.ModelName = {
   MouseClickEvent: 'MouseClickEvent',
   PathnameChangeEvent: 'PathnameChangeEvent',
   LeaveAppEvent: 'LeaveAppEvent',
+  DemographicEvent: 'DemographicEvent',
   Click: 'Click',
   Window: 'Window',
   UserAgent: 'UserAgent',
