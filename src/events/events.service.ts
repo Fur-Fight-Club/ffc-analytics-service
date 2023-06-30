@@ -1,8 +1,10 @@
 import { Injectable } from "@nestjs/common";
 import {
   ButtonClickDto,
+  DemographicDataEventDto,
   GetHeatmapDataDto,
   HeatmapData,
+  IpApiResponse,
   LeaveAppEventDto,
   MouseClickDto,
   PathnameChangeDto,
@@ -10,11 +12,13 @@ import {
 import { MongoService } from "src/services/mongo.service";
 import {
   ButtonEvent,
+  DemographicEvent,
   EventType,
   LeaveAppEvent,
   MouseClickEvent,
   PathnameChangeEvent,
 } from "prisma/client";
+import fetch from "node-fetch";
 
 @Injectable()
 export class EventsService {
@@ -241,5 +245,36 @@ export class EventsService {
       },
     });
     return mongoData;
+  }
+
+  async setDemographicData(
+    setDemographicDataDto: DemographicDataEventDto
+  ): Promise<{ success: boolean }> {
+    const { ip } = setDemographicDataDto;
+    const result = await fetch(`http://ip-api.com/json/${ip}`);
+    if (result.ok) {
+      const data: IpApiResponse = await result.json();
+      if (data.status === "success") {
+        await this.mongo.demographicEvent.create({
+          data: {
+            event: EventType.demographic,
+            timestamp: Date.now(),
+            ip: data.query,
+            isp: data.isp,
+            country: data.country,
+            timezone: data.timezone,
+            latitude: data.lat,
+            longitude: data.lon,
+          },
+        });
+        return { success: true };
+      }
+      return { success: false };
+    }
+    return { success: false };
+  }
+
+  async getDemographicData(): Promise<DemographicEvent[]> {
+    return await this.mongo.demographicEvent.findMany();
   }
 }

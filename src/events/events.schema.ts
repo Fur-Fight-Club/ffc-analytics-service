@@ -393,3 +393,34 @@ export interface HeatmapData {
     y: number;
   };
 }
+
+export const demographicDataEventSchema = z.object({
+  ip: z.string(),
+});
+
+export class DemographicDataEventDto extends createZodDto(
+  demographicDataEventSchema
+) {
+  @ApiProperty({
+    description: "The ip of the user",
+    example: "34.140.90.116",
+  })
+  ip: string;
+}
+
+export interface IpApiResponse {
+  status: string;
+  country: string;
+  countryCode: string;
+  region: string;
+  regionName: string;
+  city: string;
+  zip: number;
+  lat: number;
+  lon: number;
+  timezone: string;
+  isp: string;
+  org: string;
+  as: string;
+  query: string;
+}

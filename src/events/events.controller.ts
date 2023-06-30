@@ -2,6 +2,7 @@ import { Body, Controller, Get, Post } from "@nestjs/common";
 import { EventsService } from "./events.service";
 import {
   ButtonClickDto,
+  DemographicDataEventDto,
   GetHeatmapDataDto,
   HeatmapData,
   LeaveAppEventDto,
@@ -12,6 +13,7 @@ import { ZodValidationPipe } from "nestjs-zod";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import {
   ButtonEvent,
+  DemographicEvent,
   LeaveAppEvent,
   MouseClickEvent,
   PathnameChangeEvent,
@@ -85,5 +87,17 @@ export class EventsController {
     @Body(ZodValidationPipe) getHeatmapData: GetHeatmapDataDto
   ): Promise<HeatmapData[]> {
     return await this.eventsService.getHeatmapData(getHeatmapData);
+  }
+
+  @Post("demographic-data")
+  async demographicData(
+    @Body(ZodValidationPipe) demographicData: DemographicDataEventDto
+  ): Promise<{ success: boolean }> {
+    return await this.eventsService.setDemographicData(demographicData);
+  }
+
+  @Get("demographic-data")
+  async getDemographicData(): Promise<DemographicEvent[]> {
+    return await this.eventsService.getDemographicData();
   }
 }
