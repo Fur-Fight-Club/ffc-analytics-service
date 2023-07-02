@@ -3,7 +3,10 @@ import { EventsService } from "./events.service";
 import {
   ButtonClickDto,
   DemographicDataEventDto,
+  GetChartsDataResponse,
   GetHeatmapDataDto,
+  GetStatCardResponse,
+  GetTablesDataResponse,
   HeatmapData,
   LeaveAppEventDto,
   MouseClickDto,
@@ -99,5 +102,20 @@ export class EventsController {
   @Get("demographic-data")
   async getDemographicData(): Promise<DemographicEvent[]> {
     return await this.eventsService.getDemographicData();
+  }
+
+  @Get("cards-data")
+  async getStatCards(): Promise<GetStatCardResponse> {
+    return await this.eventsService.getStatCards();
+  }
+
+  @Get("tables-data")
+  async getTablesDatas(): Promise<GetTablesDataResponse> {
+    return await this.eventsService.getTablesDatas();
+  }
+
+  @Get("charts-data")
+  async getChartsData(): Promise<GetChartsDataResponse> {
+    return await this.eventsService.getChartsData();
   }
 }

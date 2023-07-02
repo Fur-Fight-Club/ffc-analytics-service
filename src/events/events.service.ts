@@ -2,7 +2,10 @@ import { Injectable } from "@nestjs/common";
 import {
   ButtonClickDto,
   DemographicDataEventDto,
+  GetChartsDataResponse,
   GetHeatmapDataDto,
+  GetStatCardResponse,
+  GetTablesDataResponse,
   HeatmapData,
   IpApiResponse,
   LeaveAppEventDto,
@@ -19,6 +22,8 @@ import {
   PathnameChangeEvent,
 } from "prisma/client";
 import fetch from "node-fetch";
+import { analytics } from "src/utils/analytics.utils";
+import { mapObjectToInterface } from "src/utils/functions.utils";
 
 @Injectable()
 export class EventsService {
@@ -276,5 +281,123 @@ export class EventsService {
 
   async getDemographicData(): Promise<DemographicEvent[]> {
     return await this.mongo.demographicEvent.findMany();
+  }
+
+  async getStatCards(): Promise<GetStatCardResponse> {
+    const leaveAppEvents = await this.mongo.leaveAppEvent.findMany();
+    const pathnameChangeEvents =
+      await this.mongo.pathnameChangeEvent.findMany();
+    return {
+      button: await this.mongo.buttonEvent.count(),
+      mouse: await this.mongo.mouseClickEvent.count(),
+      pathname: await this.mongo.pathnameChangeEvent.count(),
+      closeApp: await this.mongo.leaveAppEvent.count(),
+      uniqueVisitor: analytics.uniqueVisitor(
+        mapObjectToInterface(leaveAppEvents)
+      ),
+      debounce: analytics.debounceRate(mapObjectToInterface(leaveAppEvents)),
+      averagePageVisited: analytics.averagePageVisited(
+        mapObjectToInterface(leaveAppEvents)
+      ),
+      averageTimeSpent: analytics.averageSessionTime(
+        mapObjectToInterface(leaveAppEvents)
+      ),
+    };
+  }
+
+  async getTablesDatas(): Promise<GetTablesDataResponse> {
+    const buttonEvents = await this.mongo.buttonEvent.findMany();
+    const pathnameEvents = await this.mongo.pathnameChangeEvent.findMany();
+    return {
+      click: analytics.uniqueButtonClicked(buttonEvents ?? []),
+      averageTime: analytics.averageTimeSpentOnEachPage(
+        analytics.filter.pathname(mapObjectToInterface(pathnameEvents) ?? [])
+      ),
+    };
+  }
+
+  async getChartsData(): Promise<GetChartsDataResponse> {
+    const leaveAppEvents = await this.getLeaveAppEvents();
+    const pathnameEvents = await this.getPathnameChangeEvents();
+    const clickEvents = await this.getMouseClickEvents();
+    const userAgents = analytics.aggregateUserAgents(
+      mapObjectToInterface(leaveAppEvents) ?? [],
+      mapObjectToInterface(pathnameEvents) ?? [],
+      mapObjectToInterface(clickEvents) ?? []
+    );
+    const demographicData = await this.mongo.demographicEvent.findMany();
+    return {
+      lastVisitors: analytics.getLastVisitors(
+        mapObjectToInterface(leaveAppEvents)
+      ),
+      averages: {
+        timeSpent: {
+          labels: analytics
+            .averageTimeSpentOnEachPage(
+              analytics.filter.pathname(
+                mapObjectToInterface(pathnameEvents) ?? []
+              )
+            )
+            .map((timeSpent) => timeSpent.page),
+          data: analytics
+            .averageTimeSpentOnEachPage(
+              mapObjectToInterface(pathnameEvents) ?? []
+            )
+            .map((timeSpent) => timeSpent.averageTimeSpent),
+        },
+      },
+      proportions: {
+        platform: {
+          labels: analytics.proportion
+            .platform(mapObjectToInterface(userAgents) ?? [])
+            .map((p) => `${p.platform} (${(p.proportion * 100).toFixed(0)}%)`),
+          data: analytics.proportion
+            .platform(mapObjectToInterface(userAgents) ?? [])
+            .map((p) => p.count),
+        },
+        browser: {
+          labels: analytics.proportion
+            .browser(mapObjectToInterface(userAgents) ?? [])
+            .map(
+              (browser) =>
+                ` ${browser.browser} (${(browser.proportion * 100).toFixed(
+                  0
+                )}%)`
+            ),
+          data: analytics.proportion
+            .browser(mapObjectToInterface(userAgents) ?? [])
+            .map((browser) => browser.count),
+        },
+        lang: {
+          labels: analytics.proportion
+            .language(mapObjectToInterface(userAgents) ?? [])
+            .map(
+              (lang) =>
+                `${lang.language} (${(lang.proportion * 100).toFixed(0)}%)`
+            ),
+          data: analytics.proportion
+            .language(mapObjectToInterface(userAgents) ?? [])
+            .map((lang) => lang.count),
+        },
+        country: {
+          labels: analytics.proportion
+            .countries(mapObjectToInterface(demographicData) ?? [])
+            .map(
+              (dd) => ` ${dd.country} (${(dd.proportion * 100).toFixed(0)}%)`
+            ),
+          data: analytics.proportion
+            .countries(mapObjectToInterface(demographicData) ?? [])
+            .map((browser) => browser.count),
+        },
+        provider: {
+          labels: analytics.proportion
+            .isps(mapObjectToInterface(demographicData) ?? [])
+            .map((dd) => ` ${dd.isp} (${(dd.proportion * 100).toFixed(0)}%)`),
+          data: analytics.proportion
+            .isps(mapObjectToInterface(demographicData) ?? [])
+            .map((browser) => browser.count),
+        },
+      },
+    };
   }
 }
