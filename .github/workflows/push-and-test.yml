@@ -12,13 +12,17 @@ jobs:
     steps:
     - name: 📥 Checkout project
       uses: actions/checkout@v2
+
     - name: 📦 Install dependencies
       run: npm install
+
     - name: 🗃️ Generate Prisma schema
       run: npx prisma generate
+
     - name: 🔨 Build .env from GitHub secrets
       run: |
         echo "DATABASE_URL='${{ secrets.DATABASE_URL }}'" >> .env
         echo "MONGODB_URL='${{ secrets.MONGODB_URL }}'" >> .env
+        
     - name: 🧪 Execute tests
       run: npm run test
