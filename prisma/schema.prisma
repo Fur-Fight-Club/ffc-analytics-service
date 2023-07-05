@@ -18,6 +18,7 @@ enum EventType {
   pathname_change
   page_unload
   demographic
+  jest_test
 }
 
 model ButtonEvent {
