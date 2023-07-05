@@ -20,12 +20,9 @@ jobs:
       run: |
         echo "DATABASE_URL='${{ secrets.DATABASE_URL }}'" >> .env
         echo "MONGODB_URL='${{ secrets.MONGODB_URL }}'" >> .env
-        
+
     - name: 🗃️ Generate Prisma schema
       run: npx prisma generate
-
-    - name: Oui
-      run: ls -la
 
     - name: 🧪 Execute tests
       run: npm run test
