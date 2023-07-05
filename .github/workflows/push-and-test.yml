@@ -2,8 +2,8 @@ name: CI
 
 on:
   push:
-    branches-ignore:
-      - '*'
+    branches:
+      - "*"  # ou la branche de votre choix
 
 jobs:
   checkout-and-test:
@@ -23,6 +23,7 @@ jobs:
 
     - name: 🗃️ Generate Prisma schema
       run: npx prisma generate
+
 
     - name: 🧪 Execute tests
       run: npm run test
