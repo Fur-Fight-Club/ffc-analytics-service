@@ -20,7 +20,7 @@ import {
   LeaveAppEvent,
   MouseClickEvent,
   PathnameChangeEvent,
-} from "prisma/client";
+} from "../../prisma/client";
 import fetch from "node-fetch";
 import { analytics } from "src/utils/analytics.utils";
 import { mapObjectToInterface } from "src/utils/functions.utils";

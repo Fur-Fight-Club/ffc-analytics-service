@@ -233,7 +233,8 @@ export const EventType: {
   mouse_click: 'mouse_click',
   pathname_change: 'pathname_change',
   page_unload: 'page_unload',
-  demographic: 'demographic'
+  demographic: 'demographic',
+  jest_test: 'jest_test'
 };
 
 export type EventType = (typeof EventType)[keyof typeof EventType]
