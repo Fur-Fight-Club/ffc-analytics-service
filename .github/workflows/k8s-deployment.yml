@@ -17,6 +17,9 @@ jobs:
       run: |
         echo "DATABASE_URL='${{ secrets.DATABASE_URL }}'" >> .env
         echo "MONGODB_URL='${{ secrets.MONGODB_URL }}'" >> .env
+
+    - name: 📦 Install dependencies
+      run: npm install
         
     - name: 🧪 Execute tests
       run: npm run test
