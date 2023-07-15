@@ -108,7 +108,8 @@ exports.Prisma.ButtonEventScalarFieldEnum = {
   pathname: 'pathname',
   buttonContent: 'buttonContent',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  appId: 'appId'
 };
 
 exports.Prisma.MouseClickEventScalarFieldEnum = {
@@ -123,7 +124,8 @@ exports.Prisma.MouseClickEventScalarFieldEnum = {
   updatedAt: 'updatedAt',
   clickId: 'clickId',
   windowId: 'windowId',
-  userAgentId: 'userAgentId'
+  userAgentId: 'userAgentId',
+  appId: 'appId'
 };
 
 exports.Prisma.PathnameChangeEventScalarFieldEnum = {
@@ -137,7 +139,8 @@ exports.Prisma.PathnameChangeEventScalarFieldEnum = {
   endTime: 'endTime',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  userAgentId: 'userAgentId'
+  userAgentId: 'userAgentId',
+  appId: 'appId'
 };
 
 exports.Prisma.LeaveAppEventScalarFieldEnum = {
@@ -150,7 +153,8 @@ exports.Prisma.LeaveAppEventScalarFieldEnum = {
   visitedPages: 'visitedPages',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  userAgentId: 'userAgentId'
+  userAgentId: 'userAgentId',
+  appId: 'appId'
 };
 
 exports.Prisma.DemographicEventScalarFieldEnum = {
@@ -162,7 +166,8 @@ exports.Prisma.DemographicEventScalarFieldEnum = {
   country: 'country',
   timezone: 'timezone',
   latitude: 'latitude',
-  longitude: 'longitude'
+  longitude: 'longitude',
+  appId: 'appId'
 };
 
 exports.Prisma.ClickScalarFieldEnum = {
