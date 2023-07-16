@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "fury-fight-club",
+  "private_key_id": "a7365a8b396d3a45bc52b926d575cc7243da34b9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDWEAL82BO9DlL9\nRzWw5dpQ5G8JvBiXNvs/FMMw6HZX8OoBh/Azucp6QnT3phv1tX7FWff0CAA3ALQ7\nHk8XGUp8VzkygsBewMzAQuxDeSRyGNgJRA4oG1t4EgGlrHmST56VrwXrNEVUiYXE\n8FWGTvMstd7w9GPp2um5irCo0o6Z8e02Ej0BPuE0D4Usb9/TEoqTai9P+SB7eTwm\n8SQI8AjnBY6SwjOd72Bzr/3ShwiWN5pkHqsPwLCHsQ4OIE28tQ6kLtu1N3IoN2yn\nWEi1/mrbv65f3+YkrO96Y1X+MQzzlzcmcYiZBrGlqPAxS/63OZdNZofnjIuzSqbh\nt3jP1yNZAgMBAAECggEAATlsjZ3+GD3i5fWdzioKYnMOsDC7YptbEC8iDKoPtIy5\nXJKL96fE4N0iG8vUlhutzXAodboD/Pc2kK3+3Xl0uRsAmz7Z3dDe0EIHED2698zC\nPjn9lhIjUZ+naGyrnKrIPpVBLz6zH3rSi9/6BT93WZadX1BuhTG41imqZ/9y9wNu\nCRPgXuPR6xwxwo0RpmdMke7rk5LQQw85SOUDEVC87neVLpJb5fh1IqSmH7pNuka6\ns71ZqnpSJTZazYuQjJzbLIwiO+C27UDwfMITplYk0Pa5Wkb1b0KAhLUcUg5xsOa1\nnUmlxd87hv9sDToCg/WTpe7NgMUr8NCtmyULv3GhuQKBgQDuuGfYWLCtyRF3T6cH\n7F2JHDuq2GqpWm3D9nq/7LcDdS3xqThd0WIV4CPApy6Tfygx5pSbPsai6Vxi7O/B\n7cFyVy+AVmpPp1sygWl21bGqRXvQ4iqN+ECQz3l+CHsokrw2nE7FMQSZb3WpwZMr\ndnLkMs1oDQP1EoakKNWgnhESbQKBgQDljq+qI7ONu0c4fomlJw4JncazBvEKDe5v\nkkQazxDmHZl5hR0mRz5WARWPqlBKziAn22l1II1DUqKERMtm67NxdA7fhGZeDqsA\npM7IfNdKeTYagJGvccm/KjMEH/zdp38+62TbLtzT3wrVE117vXgVrDfYUdH6PKEe\ngOOC8aghHQKBgBKkeAefNXz83M5SfBrUTKGugMJg0EOVekj5cLCYTdqJRiM/MdWx\nylUnAePDqpF+Nqde+G//QQfr7XkUQ80DQj4prN364aaCzU5uaMwM+Cjx8C9p2iTo\nJDKq4TQEeYm7m9Mv9b7UiyVoXOn64gFc6LAFf6EGky6KWdVsEvLOJUspAoGARj82\nxFLuhEW2ErSuPGrKIek1P92070W6HExfKPEKk9ClAYnZlLgifEESrwcIUQvozSmY\niO4wLFTiRKWktNcV73b7gizLAqdsbuMAIFwLqc+T3eJQMqcYfLZWLEH5qH60MrXo\nBCbADtnnP7MQXWhqkf9Ei57mKbRZ/bKlbJG0yIUCgYBjCHXKWYMZa4gvWznCd1mG\nELksyLavTbGKhJMDtxPWyRekEabMVLHA/d6wvITvKXXJ6DjQm7SVskepqjTo11kh\njJt1d8HdHQhKQhwBlnLB9XMwtT4R+rQ7g5lEQZpgzRzGaTWh83HnjrgIvxI3mgqi\nlKuZtAdJ9pcVKb/N2AaWoQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-elukp@fury-fight-club.iam.gserviceaccount.com",
+  "client_id": "110333104246711250883",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-elukp%40fury-fight-club.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
