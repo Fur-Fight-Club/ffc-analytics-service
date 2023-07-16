@@ -20,6 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@google-cloud/firestore": "^6.6.1",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
@@ -28,6 +29,7 @@
     "@nestjs/swagger": "^6.3.0",
     "@prisma/client": "^4.16.1",
     "bcrypt": "^5.1.0",
+    "firebase": "^10.0.0",
     "fs": "^0.0.1-security",
     "nestjs-zod": "^2.3.3",
     "node-fetch": "^2.6.9",
