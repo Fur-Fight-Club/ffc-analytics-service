@@ -221,7 +221,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/milancamus/Documents/ffc-analytics-service/prisma/client",
+      "value": "/Users/samiz/workspace/Fur-Fight-Club/ffc-analytics-service/prisma/client",
       "fromEnvVar": null
     },
     "config": {
@@ -230,7 +230,7 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin",
+        "value": "darwin-arm64",
         "native": true
       },
       {
@@ -303,11 +303,11 @@ const PrismaClient = getPrismaClient(config)
 exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
-path.join(__dirname, "libquery_engine-darwin.dylib.node");
-path.join(process.cwd(), "prisma/client/libquery_engine-darwin.dylib.node")
-
 path.join(__dirname, "libquery_engine-darwin-arm64.dylib.node");
 path.join(process.cwd(), "prisma/client/libquery_engine-darwin-arm64.dylib.node")
+
+path.join(__dirname, "libquery_engine-darwin.dylib.node");
+path.join(process.cwd(), "prisma/client/libquery_engine-darwin.dylib.node")
 
 path.join(__dirname, "libquery_engine-rhel-openssl-1.0.x.so.node");
 path.join(process.cwd(), "prisma/client/libquery_engine-rhel-openssl-1.0.x.so.node")
