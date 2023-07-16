@@ -1,4 +1,11 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Request,
+  UseGuards,
+} from "@nestjs/common";
 import { EventsService } from "./events.service";
 import {
   ButtonClickDto,
@@ -21,6 +28,7 @@ import {
   MouseClickEvent,
   PathnameChangeEvent,
 } from "prisma/client";
+import { AuthRequest, FirebaseGuard } from "src/auth/firebase.guard";
 
 @Controller("events")
 @ApiTags("Events")
@@ -29,93 +37,133 @@ export class EventsController {
   constructor(private readonly eventsService: EventsService) {}
 
   @Post("mouse-click")
+  @UseGuards(FirebaseGuard)
   async mouseClick(
-    @Body(ZodValidationPipe) mouseClickDto: MouseClickDto
+    @Body(ZodValidationPipe) mouseClickDto: MouseClickDto,
+    @Request() request: AuthRequest
   ): Promise<{ success: boolean }> {
-    await this.eventsService.mouseClick(mouseClickDto);
+    await this.eventsService.mouseClick(mouseClickDto, request.auth.appId);
     return { success: true };
   }
 
   @Post("button-click")
+  @UseGuards(FirebaseGuard)
   async buttonClick(
-    @Body(ZodValidationPipe) buttonClickDto: ButtonClickDto
+    @Body(ZodValidationPipe) buttonClickDto: ButtonClickDto,
+    @Request() request: AuthRequest
   ): Promise<{ success: boolean }> {
-    await this.eventsService.buttonClick(buttonClickDto);
+    await this.eventsService.buttonClick(buttonClickDto, request.auth.appId);
     return { success: true };
   }
 
   @Post("pathname-change")
+  @UseGuards(FirebaseGuard)
   async pathnameChange(
-    @Body(ZodValidationPipe) pathnameChangeDto: PathnameChangeDto
+    @Body(ZodValidationPipe) pathnameChangeDto: PathnameChangeDto,
+    @Request() request: AuthRequest
   ): Promise<{ success: boolean }> {
-    await this.eventsService.pathnameChange(pathnameChangeDto);
+    await this.eventsService.pathnameChange(
+      pathnameChangeDto,
+      request.auth.appId
+    );
     return { success: true };
   }
 
   @Post("leave-app")
+  @UseGuards(FirebaseGuard)
   async leaveApp(
-    @Body(ZodValidationPipe) leaveAppDto: LeaveAppEventDto
+    @Body(ZodValidationPipe) leaveAppDto: LeaveAppEventDto,
+    @Request() request: AuthRequest
   ): Promise<{ success: boolean }> {
-    await this.eventsService.leaveApp(leaveAppDto);
+    await this.eventsService.leaveApp(leaveAppDto, request.auth.appId);
     return { success: true };
   }
 
   @Get("button-click")
-  async getButtonClickEvents(): Promise<ButtonEvent[]> {
-    return await this.eventsService.getButtonEvents();
+  @UseGuards(FirebaseGuard)
+  async getButtonClickEvents(
+    @Request() request: AuthRequest
+  ): Promise<ButtonEvent[]> {
+    return await this.eventsService.getButtonEvents(request.auth.appId);
   }
 
   @Get("pathname-change")
-  async getPathnameChangeEvents(): Promise<PathnameChangeEvent[]> {
-    return await this.eventsService.getPathnameChangeEvents();
+  @UseGuards(FirebaseGuard)
+  async getPathnameChangeEvents(
+    @Request() request: AuthRequest
+  ): Promise<PathnameChangeEvent[]> {
+    return await this.eventsService.getPathnameChangeEvents(request.auth.appId);
   }
 
   @Get("mouse-click")
-  async getMouseClickEvents(): Promise<MouseClickEvent[]> {
-    return await this.eventsService.getMouseClickEvents();
+  @UseGuards(FirebaseGuard)
+  async getMouseClickEvents(
+    @Request() request: AuthRequest
+  ): Promise<MouseClickEvent[]> {
+    return await this.eventsService.getMouseClickEvents(request.auth.appId);
   }
 
   @Get("leave-app")
-  async getLeaveAppEvents(): Promise<LeaveAppEvent[]> {
-    return await this.eventsService.getLeaveAppEvents();
-  }
-
-  @Get("reset-all")
-  async resetAll(): Promise<any> {
-    return await this.eventsService.resetAll();
+  @UseGuards(FirebaseGuard)
+  async getLeaveAppEvents(
+    @Request() request: AuthRequest
+  ): Promise<LeaveAppEvent[]> {
+    return await this.eventsService.getLeaveAppEvents(request.auth.appId);
   }
 
   @Post("heatmap-data")
+  @UseGuards(FirebaseGuard)
   async getHeatmapData(
-    @Body(ZodValidationPipe) getHeatmapData: GetHeatmapDataDto
+    @Body(ZodValidationPipe) getHeatmapData: GetHeatmapDataDto,
+    @Request() request: AuthRequest
   ): Promise<HeatmapData[]> {
-    return await this.eventsService.getHeatmapData(getHeatmapData);
+    return await this.eventsService.getHeatmapData(
+      getHeatmapData,
+      request.auth.appId
+    );
   }
 
   @Post("demographic-data")
+  @UseGuards(FirebaseGuard)
   async demographicData(
-    @Body(ZodValidationPipe) demographicData: DemographicDataEventDto
+    @Body(ZodValidationPipe) demographicData: DemographicDataEventDto,
+    @Request() request: AuthRequest
   ): Promise<{ success: boolean }> {
-    return await this.eventsService.setDemographicData(demographicData);
+    return await this.eventsService.setDemographicData(
+      demographicData,
+      request.auth.appId
+    );
   }
 
   @Get("demographic-data")
-  async getDemographicData(): Promise<DemographicEvent[]> {
-    return await this.eventsService.getDemographicData();
+  @UseGuards(FirebaseGuard)
+  async getDemographicData(
+    @Request() request: AuthRequest
+  ): Promise<DemographicEvent[]> {
+    return await this.eventsService.getDemographicData(request.auth.appId);
   }
 
   @Get("cards-data")
-  async getStatCards(): Promise<GetStatCardResponse> {
-    return await this.eventsService.getStatCards();
+  @UseGuards(FirebaseGuard)
+  async getStatCards(
+    @Request() request: AuthRequest
+  ): Promise<GetStatCardResponse> {
+    return await this.eventsService.getStatCards(request.auth.appId);
   }
 
   @Get("tables-data")
-  async getTablesDatas(): Promise<GetTablesDataResponse> {
-    return await this.eventsService.getTablesDatas();
+  @UseGuards(FirebaseGuard)
+  async getTablesDatas(
+    @Request() request: AuthRequest
+  ): Promise<GetTablesDataResponse> {
+    return await this.eventsService.getTablesDatas(request.auth.appId);
   }
 
   @Get("charts-data")
-  async getChartsData(): Promise<GetChartsDataResponse> {
-    return await this.eventsService.getChartsData();
+  @UseGuards(FirebaseGuard)
+  async getChartsData(
+    @Request() request: AuthRequest
+  ): Promise<GetChartsDataResponse> {
+    return await this.eventsService.getChartsData(request.auth.appId);
   }
 }

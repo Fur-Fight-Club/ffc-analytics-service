@@ -28,9 +28,10 @@ import { mapObjectToInterface } from "src/utils/functions.utils";
 @Injectable()
 export class EventsService {
   constructor(private readonly mongo: MongoService) {}
-  async mouseClick(mouseClickDto: MouseClickDto): Promise<void> {
+  async mouseClick(mouseClickDto: MouseClickDto, appId: string): Promise<void> {
     await this.mongo.mouseClickEvent.create({
       data: {
+        appId,
         event: mouseClickDto.event as EventType,
         event_id: mouseClickDto.event_id,
         timestamp: mouseClickDto.timestamp,
@@ -71,9 +72,13 @@ export class EventsService {
     });
   }
 
-  async buttonClick(buttonClickDto: ButtonClickDto): Promise<void> {
+  async buttonClick(
+    buttonClickDto: ButtonClickDto,
+    appId: string
+  ): Promise<void> {
     await this.mongo.buttonEvent.create({
       data: {
+        appId,
         event: buttonClickDto.event as EventType,
         event_id: buttonClickDto.event_id,
         timestamp: buttonClickDto.timestamp,
@@ -85,9 +90,13 @@ export class EventsService {
     });
   }
 
-  async pathnameChange(pathnameChangeDto: PathnameChangeDto): Promise<void> {
+  async pathnameChange(
+    pathnameChangeDto: PathnameChangeDto,
+    appId: string
+  ): Promise<void> {
     await this.mongo.pathnameChangeEvent.create({
       data: {
+        appId,
         event: pathnameChangeDto.event as EventType,
         event_id: pathnameChangeDto.event_id,
         timestamp: pathnameChangeDto.timestamp,
@@ -117,9 +126,10 @@ export class EventsService {
     });
   }
 
-  async leaveApp(leaveAppDto: LeaveAppEventDto): Promise<void> {
+  async leaveApp(leaveAppDto: LeaveAppEventDto, appId: string): Promise<void> {
     await this.mongo.leaveAppEvent.create({
       data: {
+        appId,
         event: leaveAppDto.event as EventType,
         event_id: leaveAppDto.event_id,
         timestamp: leaveAppDto.timestamp,
@@ -149,8 +159,11 @@ export class EventsService {
   }
 
   // Get MouseClickEvents
-  async getMouseClickEvents(): Promise<MouseClickEvent[]> {
+  async getMouseClickEvents(appId: string): Promise<MouseClickEvent[]> {
     return await this.mongo.mouseClickEvent.findMany({
+      where: {
+        appId,
+      },
       include: {
         userAgent: {
           include: {
@@ -165,13 +178,20 @@ export class EventsService {
   }
 
   // Get ButtonEvents
-  async getButtonEvents(): Promise<ButtonEvent[]> {
-    return await this.mongo.buttonEvent.findMany();
+  async getButtonEvents(appId: string): Promise<ButtonEvent[]> {
+    return await this.mongo.buttonEvent.findMany({
+      where: {
+        appId,
+      },
+    });
   }
 
   // Get PathnameChangeEvents
-  async getPathnameChangeEvents(): Promise<PathnameChangeEvent[]> {
+  async getPathnameChangeEvents(appId: string): Promise<PathnameChangeEvent[]> {
     return await this.mongo.pathnameChangeEvent.findMany({
+      where: {
+        appId,
+      },
       include: {
         userAgent: {
           include: {
@@ -184,8 +204,11 @@ export class EventsService {
   }
 
   // Get LeaveAppEvents
-  async getLeaveAppEvents(): Promise<LeaveAppEvent[]> {
+  async getLeaveAppEvents(appId: string): Promise<LeaveAppEvent[]> {
     return await this.mongo.leaveAppEvent.findMany({
+      where: {
+        appId,
+      },
       include: {
         userAgent: {
           include: {
@@ -197,38 +220,16 @@ export class EventsService {
     });
   }
 
-  async resetAll() {
-    const delete1 = this.mongo.mouseClickEvent.deleteMany();
-    const delete2 = this.mongo.buttonEvent.deleteMany();
-    const delete3 = this.mongo.pathnameChangeEvent.deleteMany();
-    const delete4 = this.mongo.leaveAppEvent.deleteMany();
-    const delete5 = this.mongo.click.deleteMany();
-    const delete6 = this.mongo.browser.deleteMany();
-    const delete7 = this.mongo.oS.deleteMany();
-    const delete8 = this.mongo.window.deleteMany();
-    const delete9 = this.mongo.userAgent.deleteMany();
-
-    return await this.mongo.$transaction([
-      delete5,
-      delete6,
-      delete7,
-      delete8,
-      delete9,
-      delete1,
-      delete2,
-      delete3,
-      delete4,
-    ]);
-  }
-
   async getHeatmapData(
-    getHeatmapData: GetHeatmapDataDto
+    getHeatmapData: GetHeatmapDataDto,
+    appId: string
   ): Promise<HeatmapData[]> {
     const { count, route } = getHeatmapData;
 
     const mongoData = await this.mongo.mouseClickEvent.findMany({
       where: {
         pathname: route,
+        appId,
       },
       take: count,
       orderBy: {
@@ -253,7 +254,8 @@ export class EventsService {
   }
 
   async setDemographicData(
-    setDemographicDataDto: DemographicDataEventDto
+    setDemographicDataDto: DemographicDataEventDto,
+    appId: string
   ): Promise<{ success: boolean }> {
     const { ip } = setDemographicDataDto;
     const result = await fetch(`http://ip-api.com/json/${ip}`);
@@ -262,6 +264,7 @@ export class EventsService {
       if (data.status === "success") {
         await this.mongo.demographicEvent.create({
           data: {
+            appId,
             event: EventType.demographic,
             timestamp: Date.now(),
             ip: data.query,
@@ -279,12 +282,20 @@ export class EventsService {
     return { success: false };
   }
 
-  async getDemographicData(): Promise<DemographicEvent[]> {
-    return await this.mongo.demographicEvent.findMany();
+  async getDemographicData(appId: string): Promise<DemographicEvent[]> {
+    return await this.mongo.demographicEvent.findMany({
+      where: {
+        appId,
+      },
+    });
   }
 
-  async getStatCards(): Promise<GetStatCardResponse> {
-    const leaveAppEvents = await this.mongo.leaveAppEvent.findMany();
+  async getStatCards(appId: string): Promise<GetStatCardResponse> {
+    const leaveAppEvents = await this.mongo.leaveAppEvent.findMany({
+      where: {
+        appId,
+      },
+    });
     const pathnameChangeEvents =
       await this.mongo.pathnameChangeEvent.findMany();
     return {
@@ -305,9 +316,17 @@ export class EventsService {
     };
   }
 
-  async getTablesDatas(): Promise<GetTablesDataResponse> {
-    const buttonEvents = await this.mongo.buttonEvent.findMany();
-    const pathnameEvents = await this.mongo.pathnameChangeEvent.findMany();
+  async getTablesDatas(appId: string): Promise<GetTablesDataResponse> {
+    const buttonEvents = await this.mongo.buttonEvent.findMany({
+      where: {
+        appId,
+      },
+    });
+    const pathnameEvents = await this.mongo.pathnameChangeEvent.findMany({
+      where: {
+        appId,
+      },
+    });
     return {
       click: analytics.uniqueButtonClicked(buttonEvents ?? []),
       averageTime: analytics.averageTimeSpentOnEachPage(
@@ -316,10 +335,10 @@ export class EventsService {
     };
   }
 
-  async getChartsData(): Promise<GetChartsDataResponse> {
-    const leaveAppEvents = await this.getLeaveAppEvents();
-    const pathnameEvents = await this.getPathnameChangeEvents();
-    const clickEvents = await this.getMouseClickEvents();
+  async getChartsData(appId: string): Promise<GetChartsDataResponse> {
+    const leaveAppEvents = await this.getLeaveAppEvents(appId);
+    const pathnameEvents = await this.getPathnameChangeEvents(appId);
+    const clickEvents = await this.getMouseClickEvents(appId);
     const userAgents = analytics.aggregateUserAgents(
       mapObjectToInterface(leaveAppEvents) ?? [],
       mapObjectToInterface(pathnameEvents) ?? [],
