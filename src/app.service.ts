@@ -6,18 +6,9 @@ import { MongoService } from "./services/mongo.service";
 export class AppService {
   constructor(private readonly mongo: MongoService) {}
   async test(): Promise<object | PromiseLike<object>> {
-    return await this.mongo.buttonEvent.findMany();
-  }
-
-  async test2(): Promise<object | PromiseLike<object>> {
-    return await this.mongo.buttonEvent.create({
+    return await this.mongo.demographicEvent.updateMany({
       data: {
-        event_id: "test",
-        buttonContent: "test content",
-        pathname: "/test/path",
-        timestamp: Date.now(),
-        user: -1,
-        uuid: "my-uuid",
+        appId: "87dacb21-13e2-4dc2-8b41-0c1b8e5ed4ad",
       },
     });
   }
