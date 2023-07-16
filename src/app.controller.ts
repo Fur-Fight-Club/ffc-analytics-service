@@ -1,7 +1,8 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, UseGuards, Request } from "@nestjs/common";
 import { AppService } from "./app.service";
 import { ApiBody, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { ServerHealthcheck } from "./app.model";
+import { AuthRequest, FirebaseGuard } from "./auth/firebase.guard";
 
 @Controller()
 @ApiTags("Utils")
@@ -19,7 +20,8 @@ export class AppController {
   }
 
   @Get("test2")
-  async test2(): Promise<object> {
-    return await this.appService.test2();
+  @UseGuards(FirebaseGuard)
+  async test2(@Request() request: AuthRequest): Promise<object> {
+    return { test: "test", auth: request.auth };
   }
 }
