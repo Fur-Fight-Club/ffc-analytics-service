@@ -25,6 +25,7 @@ export type ButtonEventPayload<ExtArgs extends $Extensions.Args = $Extensions.De
     buttonContent: string
     createdAt: Date
     updatedAt: Date
+    appId: string
   }, ExtArgs["result"]["buttonEvent"]>
   composites: {}
 }
@@ -53,6 +54,7 @@ export type MouseClickEventPayload<ExtArgs extends $Extensions.Args = $Extension
     clickId: string
     windowId: string
     userAgentId: string
+    appId: string
   }, ExtArgs["result"]["mouseClickEvent"]>
   composites: {}
 }
@@ -78,6 +80,7 @@ export type PathnameChangeEventPayload<ExtArgs extends $Extensions.Args = $Exten
     createdAt: Date
     updatedAt: Date
     userAgentId: string
+    appId: string
   }, ExtArgs["result"]["pathnameChangeEvent"]>
   composites: {}
 }
@@ -102,6 +105,7 @@ export type LeaveAppEventPayload<ExtArgs extends $Extensions.Args = $Extensions.
     createdAt: Date
     updatedAt: Date
     userAgentId: string
+    appId: string
   }, ExtArgs["result"]["leaveAppEvent"]>
   composites: {}
 }
@@ -123,6 +127,7 @@ export type DemographicEventPayload<ExtArgs extends $Extensions.Args = $Extensio
     timezone: string
     latitude: number
     longitude: number
+    appId: string
   }, ExtArgs["result"]["demographicEvent"]>
   composites: {}
 }
@@ -2232,6 +2237,7 @@ export namespace Prisma {
     buttonContent: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    appId: string | null
   }
 
   export type ButtonEventMaxAggregateOutputType = {
@@ -2245,6 +2251,7 @@ export namespace Prisma {
     buttonContent: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    appId: string | null
   }
 
   export type ButtonEventCountAggregateOutputType = {
@@ -2258,6 +2265,7 @@ export namespace Prisma {
     buttonContent: number
     createdAt: number
     updatedAt: number
+    appId: number
     _all: number
   }
 
@@ -2283,6 +2291,7 @@ export namespace Prisma {
     buttonContent?: true
     createdAt?: true
     updatedAt?: true
+    appId?: true
   }
 
   export type ButtonEventMaxAggregateInputType = {
@@ -2296,6 +2305,7 @@ export namespace Prisma {
     buttonContent?: true
     createdAt?: true
     updatedAt?: true
+    appId?: true
   }
 
   export type ButtonEventCountAggregateInputType = {
@@ -2309,6 +2319,7 @@ export namespace Prisma {
     buttonContent?: true
     createdAt?: true
     updatedAt?: true
+    appId?: true
     _all?: true
   }
 
@@ -2410,6 +2421,7 @@ export namespace Prisma {
     buttonContent: string
     createdAt: Date
     updatedAt: Date
+    appId: string
     _count: ButtonEventCountAggregateOutputType | null
     _avg: ButtonEventAvgAggregateOutputType | null
     _sum: ButtonEventSumAggregateOutputType | null
@@ -2442,6 +2454,7 @@ export namespace Prisma {
     buttonContent?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    appId?: boolean
   }, ExtArgs["result"]["buttonEvent"]>
 
   export type ButtonEventSelectScalar = {
@@ -2455,6 +2468,7 @@ export namespace Prisma {
     buttonContent?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    appId?: boolean
   }
 
 
@@ -3251,6 +3265,7 @@ export namespace Prisma {
     clickId: string | null
     windowId: string | null
     userAgentId: string | null
+    appId: string | null
   }
 
   export type MouseClickEventMaxAggregateOutputType = {
@@ -3266,6 +3281,7 @@ export namespace Prisma {
     clickId: string | null
     windowId: string | null
     userAgentId: string | null
+    appId: string | null
   }
 
   export type MouseClickEventCountAggregateOutputType = {
@@ -3281,6 +3297,7 @@ export namespace Prisma {
     clickId: number
     windowId: number
     userAgentId: number
+    appId: number
     _all: number
   }
 
@@ -3308,6 +3325,7 @@ export namespace Prisma {
     clickId?: true
     windowId?: true
     userAgentId?: true
+    appId?: true
   }
 
   export type MouseClickEventMaxAggregateInputType = {
@@ -3323,6 +3341,7 @@ export namespace Prisma {
     clickId?: true
     windowId?: true
     userAgentId?: true
+    appId?: true
   }
 
   export type MouseClickEventCountAggregateInputType = {
@@ -3338,6 +3357,7 @@ export namespace Prisma {
     clickId?: true
     windowId?: true
     userAgentId?: true
+    appId?: true
     _all?: true
   }
 
@@ -3441,6 +3461,7 @@ export namespace Prisma {
     clickId: string
     windowId: string
     userAgentId: string
+    appId: string
     _count: MouseClickEventCountAggregateOutputType | null
     _avg: MouseClickEventAvgAggregateOutputType | null
     _sum: MouseClickEventSumAggregateOutputType | null
@@ -3475,6 +3496,7 @@ export namespace Prisma {
     clickId?: boolean
     windowId?: boolean
     userAgentId?: boolean
+    appId?: boolean
     click?: boolean | ClickArgs<ExtArgs>
     window?: boolean | WindowArgs<ExtArgs>
     userAgent?: boolean | UserAgentArgs<ExtArgs>
@@ -3493,6 +3515,7 @@ export namespace Prisma {
     clickId?: boolean
     windowId?: boolean
     userAgentId?: boolean
+    appId?: boolean
   }
 
   export type MouseClickEventInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
@@ -4343,6 +4366,7 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     userAgentId: string | null
+    appId: string | null
   }
 
   export type PathnameChangeEventMaxAggregateOutputType = {
@@ -4357,6 +4381,7 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     userAgentId: string | null
+    appId: string | null
   }
 
   export type PathnameChangeEventCountAggregateOutputType = {
@@ -4371,6 +4396,7 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     userAgentId: number
+    appId: number
     _all: number
   }
 
@@ -4401,6 +4427,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     userAgentId?: true
+    appId?: true
   }
 
   export type PathnameChangeEventMaxAggregateInputType = {
@@ -4415,6 +4442,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     userAgentId?: true
+    appId?: true
   }
 
   export type PathnameChangeEventCountAggregateInputType = {
@@ -4429,6 +4457,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     userAgentId?: true
+    appId?: true
     _all?: true
   }
 
@@ -4531,6 +4560,7 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     userAgentId: string
+    appId: string
     _count: PathnameChangeEventCountAggregateOutputType | null
     _avg: PathnameChangeEventAvgAggregateOutputType | null
     _sum: PathnameChangeEventSumAggregateOutputType | null
@@ -4564,6 +4594,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     userAgentId?: boolean
+    appId?: boolean
     userAgent?: boolean | UserAgentArgs<ExtArgs>
   }, ExtArgs["result"]["pathnameChangeEvent"]>
 
@@ -4579,6 +4610,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     userAgentId?: boolean
+    appId?: boolean
   }
 
   export type PathnameChangeEventInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
@@ -5417,6 +5449,7 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     userAgentId: string | null
+    appId: string | null
   }
 
   export type LeaveAppEventMaxAggregateOutputType = {
@@ -5429,6 +5462,7 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     userAgentId: string | null
+    appId: string | null
   }
 
   export type LeaveAppEventCountAggregateOutputType = {
@@ -5442,6 +5476,7 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     userAgentId: number
+    appId: number
     _all: number
   }
 
@@ -5466,6 +5501,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     userAgentId?: true
+    appId?: true
   }
 
   export type LeaveAppEventMaxAggregateInputType = {
@@ -5478,6 +5514,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     userAgentId?: true
+    appId?: true
   }
 
   export type LeaveAppEventCountAggregateInputType = {
@@ -5491,6 +5528,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     userAgentId?: true
+    appId?: true
     _all?: true
   }
 
@@ -5592,6 +5630,7 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     userAgentId: string
+    appId: string
     _count: LeaveAppEventCountAggregateOutputType | null
     _avg: LeaveAppEventAvgAggregateOutputType | null
     _sum: LeaveAppEventSumAggregateOutputType | null
@@ -5624,6 +5663,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     userAgentId?: boolean
+    appId?: boolean
     userAgent?: boolean | UserAgentArgs<ExtArgs>
   }, ExtArgs["result"]["leaveAppEvent"]>
 
@@ -5638,6 +5678,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     userAgentId?: boolean
+    appId?: boolean
   }
 
   export type LeaveAppEventInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
@@ -6478,6 +6519,7 @@ export namespace Prisma {
     timezone: string | null
     latitude: number | null
     longitude: number | null
+    appId: string | null
   }
 
   export type DemographicEventMaxAggregateOutputType = {
@@ -6490,6 +6532,7 @@ export namespace Prisma {
     timezone: string | null
     latitude: number | null
     longitude: number | null
+    appId: string | null
   }
 
   export type DemographicEventCountAggregateOutputType = {
@@ -6502,6 +6545,7 @@ export namespace Prisma {
     timezone: number
     latitude: number
     longitude: number
+    appId: number
     _all: number
   }
 
@@ -6528,6 +6572,7 @@ export namespace Prisma {
     timezone?: true
     latitude?: true
     longitude?: true
+    appId?: true
   }
 
   export type DemographicEventMaxAggregateInputType = {
@@ -6540,6 +6585,7 @@ export namespace Prisma {
     timezone?: true
     latitude?: true
     longitude?: true
+    appId?: true
   }
 
   export type DemographicEventCountAggregateInputType = {
@@ -6552,6 +6598,7 @@ export namespace Prisma {
     timezone?: true
     latitude?: true
     longitude?: true
+    appId?: true
     _all?: true
   }
 
@@ -6652,6 +6699,7 @@ export namespace Prisma {
     timezone: string
     latitude: number
     longitude: number
+    appId: string
     _count: DemographicEventCountAggregateOutputType | null
     _avg: DemographicEventAvgAggregateOutputType | null
     _sum: DemographicEventSumAggregateOutputType | null
@@ -6683,6 +6731,7 @@ export namespace Prisma {
     timezone?: boolean
     latitude?: boolean
     longitude?: boolean
+    appId?: boolean
   }, ExtArgs["result"]["demographicEvent"]>
 
   export type DemographicEventSelectScalar = {
@@ -6695,6 +6744,7 @@ export namespace Prisma {
     timezone?: boolean
     latitude?: boolean
     longitude?: boolean
+    appId?: boolean
   }
 
 
@@ -12546,7 +12596,8 @@ export namespace Prisma {
     pathname: 'pathname',
     buttonContent: 'buttonContent',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    appId: 'appId'
   };
 
   export type ButtonEventScalarFieldEnum = (typeof ButtonEventScalarFieldEnum)[keyof typeof ButtonEventScalarFieldEnum]
@@ -12564,7 +12615,8 @@ export namespace Prisma {
     updatedAt: 'updatedAt',
     clickId: 'clickId',
     windowId: 'windowId',
-    userAgentId: 'userAgentId'
+    userAgentId: 'userAgentId',
+    appId: 'appId'
   };
 
   export type MouseClickEventScalarFieldEnum = (typeof MouseClickEventScalarFieldEnum)[keyof typeof MouseClickEventScalarFieldEnum]
@@ -12581,7 +12633,8 @@ export namespace Prisma {
     endTime: 'endTime',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    userAgentId: 'userAgentId'
+    userAgentId: 'userAgentId',
+    appId: 'appId'
   };
 
   export type PathnameChangeEventScalarFieldEnum = (typeof PathnameChangeEventScalarFieldEnum)[keyof typeof PathnameChangeEventScalarFieldEnum]
@@ -12597,7 +12650,8 @@ export namespace Prisma {
     visitedPages: 'visitedPages',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    userAgentId: 'userAgentId'
+    userAgentId: 'userAgentId',
+    appId: 'appId'
   };
 
   export type LeaveAppEventScalarFieldEnum = (typeof LeaveAppEventScalarFieldEnum)[keyof typeof LeaveAppEventScalarFieldEnum]
@@ -12612,7 +12666,8 @@ export namespace Prisma {
     country: 'country',
     timezone: 'timezone',
     latitude: 'latitude',
-    longitude: 'longitude'
+    longitude: 'longitude',
+    appId: 'appId'
   };
 
   export type DemographicEventScalarFieldEnum = (typeof DemographicEventScalarFieldEnum)[keyof typeof DemographicEventScalarFieldEnum]
@@ -12700,6 +12755,7 @@ export namespace Prisma {
     buttonContent?: StringFilter | string
     createdAt?: DateTimeFilter | Date | string
     updatedAt?: DateTimeFilter | Date | string
+    appId?: StringFilter | string
   }
 
   export type ButtonEventOrderByWithRelationInput = {
@@ -12713,6 +12769,7 @@ export namespace Prisma {
     buttonContent?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    appId?: SortOrder
   }
 
   export type ButtonEventWhereUniqueInput = {
@@ -12730,6 +12787,7 @@ export namespace Prisma {
     buttonContent?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    appId?: SortOrder
     _count?: ButtonEventCountOrderByAggregateInput
     _avg?: ButtonEventAvgOrderByAggregateInput
     _max?: ButtonEventMaxOrderByAggregateInput
@@ -12751,6 +12809,7 @@ export namespace Prisma {
     buttonContent?: StringWithAggregatesFilter | string
     createdAt?: DateTimeWithAggregatesFilter | Date | string
     updatedAt?: DateTimeWithAggregatesFilter | Date | string
+    appId?: StringWithAggregatesFilter | string
   }
 
   export type MouseClickEventWhereInput = {
@@ -12769,6 +12828,7 @@ export namespace Prisma {
     clickId?: StringFilter | string
     windowId?: StringFilter | string
     userAgentId?: StringFilter | string
+    appId?: StringFilter | string
     click?: XOR<ClickRelationFilter, ClickWhereInput>
     window?: XOR<WindowRelationFilter, WindowWhereInput>
     userAgent?: XOR<UserAgentRelationFilter, UserAgentWhereInput>
@@ -12787,6 +12847,7 @@ export namespace Prisma {
     clickId?: SortOrder
     windowId?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
     click?: ClickOrderByWithRelationInput
     window?: WindowOrderByWithRelationInput
     userAgent?: UserAgentOrderByWithRelationInput
@@ -12809,6 +12870,7 @@ export namespace Prisma {
     clickId?: SortOrder
     windowId?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
     _count?: MouseClickEventCountOrderByAggregateInput
     _avg?: MouseClickEventAvgOrderByAggregateInput
     _max?: MouseClickEventMaxOrderByAggregateInput
@@ -12832,6 +12894,7 @@ export namespace Prisma {
     clickId?: StringWithAggregatesFilter | string
     windowId?: StringWithAggregatesFilter | string
     userAgentId?: StringWithAggregatesFilter | string
+    appId?: StringWithAggregatesFilter | string
   }
 
   export type PathnameChangeEventWhereInput = {
@@ -12849,6 +12912,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter | Date | string
     updatedAt?: DateTimeFilter | Date | string
     userAgentId?: StringFilter | string
+    appId?: StringFilter | string
     userAgent?: XOR<UserAgentRelationFilter, UserAgentWhereInput>
   }
 
@@ -12864,6 +12928,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
     userAgent?: UserAgentOrderByWithRelationInput
   }
 
@@ -12883,6 +12948,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
     _count?: PathnameChangeEventCountOrderByAggregateInput
     _avg?: PathnameChangeEventAvgOrderByAggregateInput
     _max?: PathnameChangeEventMaxOrderByAggregateInput
@@ -12905,6 +12971,7 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter | Date | string
     updatedAt?: DateTimeWithAggregatesFilter | Date | string
     userAgentId?: StringWithAggregatesFilter | string
+    appId?: StringWithAggregatesFilter | string
   }
 
   export type LeaveAppEventWhereInput = {
@@ -12921,6 +12988,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter | Date | string
     updatedAt?: DateTimeFilter | Date | string
     userAgentId?: StringFilter | string
+    appId?: StringFilter | string
     userAgent?: XOR<UserAgentRelationFilter, UserAgentWhereInput>
   }
 
@@ -12935,6 +13003,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
     userAgent?: UserAgentOrderByWithRelationInput
   }
 
@@ -12953,6 +13022,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
     _count?: LeaveAppEventCountOrderByAggregateInput
     _avg?: LeaveAppEventAvgOrderByAggregateInput
     _max?: LeaveAppEventMaxOrderByAggregateInput
@@ -12974,6 +13044,7 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter | Date | string
     updatedAt?: DateTimeWithAggregatesFilter | Date | string
     userAgentId?: StringWithAggregatesFilter | string
+    appId?: StringWithAggregatesFilter | string
   }
 
   export type DemographicEventWhereInput = {
@@ -12989,6 +13060,7 @@ export namespace Prisma {
     timezone?: StringFilter | string
     latitude?: FloatFilter | number
     longitude?: FloatFilter | number
+    appId?: StringFilter | string
   }
 
   export type DemographicEventOrderByWithRelationInput = {
@@ -13001,6 +13073,7 @@ export namespace Prisma {
     timezone?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
+    appId?: SortOrder
   }
 
   export type DemographicEventWhereUniqueInput = {
@@ -13017,6 +13090,7 @@ export namespace Prisma {
     timezone?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
+    appId?: SortOrder
     _count?: DemographicEventCountOrderByAggregateInput
     _avg?: DemographicEventAvgOrderByAggregateInput
     _max?: DemographicEventMaxOrderByAggregateInput
@@ -13037,6 +13111,7 @@ export namespace Prisma {
     timezone?: StringWithAggregatesFilter | string
     latitude?: FloatWithAggregatesFilter | number
     longitude?: FloatWithAggregatesFilter | number
+    appId?: StringWithAggregatesFilter | string
   }
 
   export type ClickWhereInput = {
@@ -13265,6 +13340,7 @@ export namespace Prisma {
     buttonContent: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
   }
 
   export type ButtonEventUncheckedCreateInput = {
@@ -13278,6 +13354,7 @@ export namespace Prisma {
     buttonContent: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
   }
 
   export type ButtonEventUpdateInput = {
@@ -13290,6 +13367,7 @@ export namespace Prisma {
     buttonContent?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type ButtonEventUncheckedUpdateInput = {
@@ -13302,6 +13380,7 @@ export namespace Prisma {
     buttonContent?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type ButtonEventCreateManyInput = {
@@ -13315,6 +13394,7 @@ export namespace Prisma {
     buttonContent: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
   }
 
   export type ButtonEventUpdateManyMutationInput = {
@@ -13327,6 +13407,7 @@ export namespace Prisma {
     buttonContent?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type ButtonEventUncheckedUpdateManyInput = {
@@ -13339,6 +13420,7 @@ export namespace Prisma {
     buttonContent?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type MouseClickEventCreateInput = {
@@ -13351,6 +13433,7 @@ export namespace Prisma {
     pathname: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
     click: ClickCreateNestedOneWithoutMouseClickEventInput
     window: WindowCreateNestedOneWithoutMouseClickEventInput
     userAgent: UserAgentCreateNestedOneWithoutMouseClickEventInput
@@ -13369,6 +13452,7 @@ export namespace Prisma {
     clickId: string
     windowId: string
     userAgentId: string
+    appId: string
   }
 
   export type MouseClickEventUpdateInput = {
@@ -13380,6 +13464,7 @@ export namespace Prisma {
     pathname?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
     click?: ClickUpdateOneRequiredWithoutMouseClickEventNestedInput
     window?: WindowUpdateOneRequiredWithoutMouseClickEventNestedInput
     userAgent?: UserAgentUpdateOneRequiredWithoutMouseClickEventNestedInput
@@ -13397,6 +13482,7 @@ export namespace Prisma {
     clickId?: StringFieldUpdateOperationsInput | string
     windowId?: StringFieldUpdateOperationsInput | string
     userAgentId?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type MouseClickEventCreateManyInput = {
@@ -13412,6 +13498,7 @@ export namespace Prisma {
     clickId: string
     windowId: string
     userAgentId: string
+    appId: string
   }
 
   export type MouseClickEventUpdateManyMutationInput = {
@@ -13423,6 +13510,7 @@ export namespace Prisma {
     pathname?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type MouseClickEventUncheckedUpdateManyInput = {
@@ -13437,6 +13525,7 @@ export namespace Prisma {
     clickId?: StringFieldUpdateOperationsInput | string
     windowId?: StringFieldUpdateOperationsInput | string
     userAgentId?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type PathnameChangeEventCreateInput = {
@@ -13450,6 +13539,7 @@ export namespace Prisma {
     endTime: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
     userAgent: UserAgentCreateNestedOneWithoutPathnameChangeEventInput
   }
 
@@ -13465,6 +13555,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     userAgentId: string
+    appId: string
   }
 
   export type PathnameChangeEventUpdateInput = {
@@ -13477,6 +13568,7 @@ export namespace Prisma {
     endTime?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
     userAgent?: UserAgentUpdateOneRequiredWithoutPathnameChangeEventNestedInput
   }
 
@@ -13491,6 +13583,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userAgentId?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type PathnameChangeEventCreateManyInput = {
@@ -13505,6 +13598,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     userAgentId: string
+    appId: string
   }
 
   export type PathnameChangeEventUpdateManyMutationInput = {
@@ -13517,6 +13611,7 @@ export namespace Prisma {
     endTime?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type PathnameChangeEventUncheckedUpdateManyInput = {
@@ -13530,6 +13625,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userAgentId?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type LeaveAppEventCreateInput = {
@@ -13542,6 +13638,7 @@ export namespace Prisma {
     visitedPages: InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
     userAgent: UserAgentCreateNestedOneWithoutLeaveAppEventInput
   }
 
@@ -13556,6 +13653,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     userAgentId: string
+    appId: string
   }
 
   export type LeaveAppEventUpdateInput = {
@@ -13567,6 +13665,7 @@ export namespace Prisma {
     visitedPages?: InputJsonValue | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
     userAgent?: UserAgentUpdateOneRequiredWithoutLeaveAppEventNestedInput
   }
 
@@ -13580,6 +13679,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userAgentId?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type LeaveAppEventCreateManyInput = {
@@ -13593,6 +13693,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     userAgentId: string
+    appId: string
   }
 
   export type LeaveAppEventUpdateManyMutationInput = {
@@ -13604,6 +13705,7 @@ export namespace Prisma {
     visitedPages?: InputJsonValue | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type LeaveAppEventUncheckedUpdateManyInput = {
@@ -13616,6 +13718,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userAgentId?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type DemographicEventCreateInput = {
@@ -13628,6 +13731,7 @@ export namespace Prisma {
     timezone: string
     latitude: number
     longitude: number
+    appId: string
   }
 
   export type DemographicEventUncheckedCreateInput = {
@@ -13640,6 +13744,7 @@ export namespace Prisma {
     timezone: string
     latitude: number
     longitude: number
+    appId: string
   }
 
   export type DemographicEventUpdateInput = {
@@ -13651,6 +13756,7 @@ export namespace Prisma {
     timezone?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type DemographicEventUncheckedUpdateInput = {
@@ -13662,6 +13768,7 @@ export namespace Prisma {
     timezone?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type DemographicEventCreateManyInput = {
@@ -13674,6 +13781,7 @@ export namespace Prisma {
     timezone: string
     latitude: number
     longitude: number
+    appId: string
   }
 
   export type DemographicEventUpdateManyMutationInput = {
@@ -13685,6 +13793,7 @@ export namespace Prisma {
     timezone?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type DemographicEventUncheckedUpdateManyInput = {
@@ -13696,6 +13805,7 @@ export namespace Prisma {
     timezone?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type ClickCreateInput = {
@@ -13983,6 +14093,7 @@ export namespace Prisma {
     buttonContent?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    appId?: SortOrder
   }
 
   export type ButtonEventAvgOrderByAggregateInput = {
@@ -14001,6 +14112,7 @@ export namespace Prisma {
     buttonContent?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    appId?: SortOrder
   }
 
   export type ButtonEventMinOrderByAggregateInput = {
@@ -14014,6 +14126,7 @@ export namespace Prisma {
     buttonContent?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    appId?: SortOrder
   }
 
   export type ButtonEventSumOrderByAggregateInput = {
@@ -14107,6 +14220,7 @@ export namespace Prisma {
     clickId?: SortOrder
     windowId?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
   }
 
   export type MouseClickEventAvgOrderByAggregateInput = {
@@ -14127,6 +14241,7 @@ export namespace Prisma {
     clickId?: SortOrder
     windowId?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
   }
 
   export type MouseClickEventMinOrderByAggregateInput = {
@@ -14142,6 +14257,7 @@ export namespace Prisma {
     clickId?: SortOrder
     windowId?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
   }
 
   export type MouseClickEventSumOrderByAggregateInput = {
@@ -14161,6 +14277,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
   }
 
   export type PathnameChangeEventAvgOrderByAggregateInput = {
@@ -14182,6 +14299,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
   }
 
   export type PathnameChangeEventMinOrderByAggregateInput = {
@@ -14196,6 +14314,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
   }
 
   export type PathnameChangeEventSumOrderByAggregateInput = {
@@ -14227,6 +14346,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
   }
 
   export type LeaveAppEventAvgOrderByAggregateInput = {
@@ -14244,6 +14364,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
   }
 
   export type LeaveAppEventMinOrderByAggregateInput = {
@@ -14256,6 +14377,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userAgentId?: SortOrder
+    appId?: SortOrder
   }
 
   export type LeaveAppEventSumOrderByAggregateInput = {
@@ -14298,6 +14420,7 @@ export namespace Prisma {
     timezone?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
+    appId?: SortOrder
   }
 
   export type DemographicEventAvgOrderByAggregateInput = {
@@ -14316,6 +14439,7 @@ export namespace Prisma {
     timezone?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
+    appId?: SortOrder
   }
 
   export type DemographicEventMinOrderByAggregateInput = {
@@ -14328,6 +14452,7 @@ export namespace Prisma {
     timezone?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
+    appId?: SortOrder
   }
 
   export type DemographicEventSumOrderByAggregateInput = {
@@ -15379,6 +15504,7 @@ export namespace Prisma {
     pathname: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
     window: WindowCreateNestedOneWithoutMouseClickEventInput
     userAgent: UserAgentCreateNestedOneWithoutMouseClickEventInput
   }
@@ -15395,6 +15521,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     windowId: string
     userAgentId: string
+    appId: string
   }
 
   export type MouseClickEventCreateOrConnectWithoutClickInput = {
@@ -15438,6 +15565,7 @@ export namespace Prisma {
     clickId?: StringFilter | string
     windowId?: StringFilter | string
     userAgentId?: StringFilter | string
+    appId?: StringFilter | string
   }
 
   export type MouseClickEventCreateWithoutWindowInput = {
@@ -15450,6 +15578,7 @@ export namespace Prisma {
     pathname: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
     click: ClickCreateNestedOneWithoutMouseClickEventInput
     userAgent: UserAgentCreateNestedOneWithoutMouseClickEventInput
   }
@@ -15466,6 +15595,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     clickId: string
     userAgentId: string
+    appId: string
   }
 
   export type MouseClickEventCreateOrConnectWithoutWindowInput = {
@@ -15537,6 +15667,7 @@ export namespace Prisma {
     pathname: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
     click: ClickCreateNestedOneWithoutMouseClickEventInput
     window: WindowCreateNestedOneWithoutMouseClickEventInput
   }
@@ -15553,6 +15684,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     clickId: string
     windowId: string
+    appId: string
   }
 
   export type MouseClickEventCreateOrConnectWithoutUserAgentInput = {
@@ -15575,6 +15707,7 @@ export namespace Prisma {
     endTime: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
   }
 
   export type PathnameChangeEventUncheckedCreateWithoutUserAgentInput = {
@@ -15588,6 +15721,7 @@ export namespace Prisma {
     endTime: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
   }
 
   export type PathnameChangeEventCreateOrConnectWithoutUserAgentInput = {
@@ -15609,6 +15743,7 @@ export namespace Prisma {
     visitedPages: InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
   }
 
   export type LeaveAppEventUncheckedCreateWithoutUserAgentInput = {
@@ -15621,6 +15756,7 @@ export namespace Prisma {
     visitedPages: InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
   }
 
   export type LeaveAppEventCreateOrConnectWithoutUserAgentInput = {
@@ -15709,6 +15845,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter | Date | string
     updatedAt?: DateTimeFilter | Date | string
     userAgentId?: StringFilter | string
+    appId?: StringFilter | string
   }
 
   export type LeaveAppEventUpsertWithWhereUniqueWithoutUserAgentInput = {
@@ -15741,6 +15878,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter | Date | string
     updatedAt?: DateTimeFilter | Date | string
     userAgentId?: StringFilter | string
+    appId?: StringFilter | string
   }
 
   export type UserAgentCreateWithoutBrowserInput = {
@@ -15856,6 +15994,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     windowId: string
     userAgentId: string
+    appId: string
   }
 
   export type MouseClickEventUpdateWithoutClickInput = {
@@ -15867,6 +16006,7 @@ export namespace Prisma {
     pathname?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
     window?: WindowUpdateOneRequiredWithoutMouseClickEventNestedInput
     userAgent?: UserAgentUpdateOneRequiredWithoutMouseClickEventNestedInput
   }
@@ -15882,6 +16022,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     windowId?: StringFieldUpdateOperationsInput | string
     userAgentId?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type MouseClickEventUncheckedUpdateManyWithoutMouseClickEventInput = {
@@ -15895,6 +16036,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     windowId?: StringFieldUpdateOperationsInput | string
     userAgentId?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type MouseClickEventCreateManyWindowInput = {
@@ -15909,6 +16051,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     clickId: string
     userAgentId: string
+    appId: string
   }
 
   export type MouseClickEventUpdateWithoutWindowInput = {
@@ -15920,6 +16063,7 @@ export namespace Prisma {
     pathname?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
     click?: ClickUpdateOneRequiredWithoutMouseClickEventNestedInput
     userAgent?: UserAgentUpdateOneRequiredWithoutMouseClickEventNestedInput
   }
@@ -15935,6 +16079,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clickId?: StringFieldUpdateOperationsInput | string
     userAgentId?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type MouseClickEventCreateManyUserAgentInput = {
@@ -15949,6 +16094,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     clickId: string
     windowId: string
+    appId: string
   }
 
   export type PathnameChangeEventCreateManyUserAgentInput = {
@@ -15962,6 +16108,7 @@ export namespace Prisma {
     endTime: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
   }
 
   export type LeaveAppEventCreateManyUserAgentInput = {
@@ -15974,6 +16121,7 @@ export namespace Prisma {
     visitedPages: InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
+    appId: string
   }
 
   export type MouseClickEventUpdateWithoutUserAgentInput = {
@@ -15985,6 +16133,7 @@ export namespace Prisma {
     pathname?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
     click?: ClickUpdateOneRequiredWithoutMouseClickEventNestedInput
     window?: WindowUpdateOneRequiredWithoutMouseClickEventNestedInput
   }
@@ -16000,6 +16149,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clickId?: StringFieldUpdateOperationsInput | string
     windowId?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type PathnameChangeEventUpdateWithoutUserAgentInput = {
@@ -16012,6 +16162,7 @@ export namespace Prisma {
     endTime?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type PathnameChangeEventUncheckedUpdateWithoutUserAgentInput = {
@@ -16024,6 +16175,7 @@ export namespace Prisma {
     endTime?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type PathnameChangeEventUncheckedUpdateManyWithoutPathnameChangeEventInput = {
@@ -16036,6 +16188,7 @@ export namespace Prisma {
     endTime?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type LeaveAppEventUpdateWithoutUserAgentInput = {
@@ -16047,6 +16200,7 @@ export namespace Prisma {
     visitedPages?: InputJsonValue | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type LeaveAppEventUncheckedUpdateWithoutUserAgentInput = {
@@ -16058,6 +16212,7 @@ export namespace Prisma {
     visitedPages?: InputJsonValue | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type LeaveAppEventUncheckedUpdateManyWithoutLeaveAppEventInput = {
@@ -16069,6 +16224,7 @@ export namespace Prisma {
     visitedPages?: InputJsonValue | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    appId?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserAgentCreateManyBrowserInput = {
